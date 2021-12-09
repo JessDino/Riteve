@@ -86,7 +86,10 @@ public class Tecnicos {
         this.setCorreo(correo);
         this.setSalario(salario);
     }
-
+public Tecnicos(int cedula) {
+    this(cedula,null,null,0,null,0);
+     
+    }
     @Override
     public String toString() {
         return cedula + " - " + nombre + " - " + FechaNacimiento + " - " + telefono + " - " + correo + " - " + salario;

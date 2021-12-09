@@ -117,7 +117,9 @@ public class Usuarios {
         this.setContrasena(contrasena);
         this.setTipoUsuario(tipoUsuario);
     }
-
+public Usuarios(int cedula) {
+        this(cedula,null,null,0,null,null,null,null);
+    }
     @Override
     public String toString() {
         return cedula + " - " + nombre + " - " + FechaNacimiento + " - " + telefono + " - " + correo + " - " + nombreUsuario + " - " + contrasena + " - " + tipoUsuario;

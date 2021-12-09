@@ -103,7 +103,9 @@ public class Vehiculos {
         this.setCedulaPropietario(cedulaPropietario);
         this.setNombrePropietario(nombrePropietario);
     }
-
+public Vehiculos(int numeroDePlaca) {
+        this(numeroDePlaca,null,null,1960,null,0,null);
+    }
     @Override
     public String toString() {
         return  numeroDePlaca + " - " + marca + " - " + modelo + " - " + anio + " - " + fechaInscripcion + " - " + cedulaPropietario + " - " + nombrePropietario;
