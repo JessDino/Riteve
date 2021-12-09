@@ -12,6 +12,7 @@ import java.util.Date;
  * @author dinar
  */
 public class Vehiculos {
+
     private int numeroDePlaca;
     private String marca;
     private String modelo;
@@ -25,8 +26,8 @@ public class Vehiculos {
     }
 
     public void setNumeroDePlaca(int numeroDePlaca) {
-        
-         if (this.numeroDePlaca<999999) {
+
+        if (this.numeroDePlaca < 999999) {
             this.numeroDePlaca = numeroDePlaca;
         }
     }
@@ -36,8 +37,8 @@ public class Vehiculos {
     }
 
     public void setMarca(String marca) {
-     
-        if (marca!= null && marca.length()<=12) {
+
+        if (marca != null && marca.length() <= 12) {
             this.marca = marca;
         }
     }
@@ -47,8 +48,8 @@ public class Vehiculos {
     }
 
     public void setModelo(String modelo) {
-        
-        if (modelo!= null && modelo.length()<=15) {
+
+        if (modelo != null && modelo.length() <= 15) {
             this.modelo = modelo;
         }
     }
@@ -58,7 +59,7 @@ public class Vehiculos {
     }
 
     public void setAnio(int anio) {
-        
+
         if (this.anio < 2050 && anio > 1960) {
             this.anio = anio;
         }
@@ -77,8 +78,8 @@ public class Vehiculos {
     }
 
     public void setCedulaPropietario(int cedulaPropietario) {
-        
-        if (cedulaPropietario<999999999) {
+
+        if (cedulaPropietario < 999999999) {
             this.cedulaPropietario = cedulaPropietario;
         }
     }
@@ -88,8 +89,8 @@ public class Vehiculos {
     }
 
     public void setNombrePropietario(String nombrePropietario) {
-        
-         if (nombrePropietario!= null && nombrePropietario.length()<=30) {
+
+        if (nombrePropietario != null && nombrePropietario.length() <= 30) {
             this.nombrePropietario = nombrePropietario;
         }
     }
@@ -103,15 +104,21 @@ public class Vehiculos {
         this.setCedulaPropietario(cedulaPropietario);
         this.setNombrePropietario(nombrePropietario);
     }
-public Vehiculos(int numeroDePlaca) {
-        this(numeroDePlaca,null,null,1960,null,0,null);
+
+    public Vehiculos(int numeroDePlaca) {
+        this(numeroDePlaca, null, null, 1960, null, 0, null);
     }
+
+    public Vehiculos() {
+        this(0, null, null, 1960, null, 0, null);
+    }
+
     @Override
     public String toString() {
-        return  numeroDePlaca + " - " + marca + " - " + modelo + " - " + anio + " - " + fechaInscripcion + " - " + cedulaPropietario + " - " + nombrePropietario;
+        return numeroDePlaca + " - " + marca + " - " + modelo + " - " + anio + " - " + fechaInscripcion + " - " + cedulaPropietario + " - " + nombrePropietario;
     }
-  
-    public boolean requeridos(){
-       return numeroDePlaca != 0 && marca != null && modelo != null && anio != 0 && fechaInscripcion != null && cedulaPropietario !=0 && nombrePropietario != null;
+
+    public boolean requeridos() {
+        return numeroDePlaca != 0 && marca != null && modelo != null && anio != 0 && fechaInscripcion != null && cedulaPropietario != 0 && nombrePropietario != null;
     }
 }

@@ -62,6 +62,9 @@ public class Citas {
         this.setHora(hora);
         this.setVehiculo(vehiculo);
     }
+    public Citas() {
+        this(0,null,null,null);
+    }
     
     public boolean requeridos(){
   return idCita!=0 && fecha!=null && hora!=null && vehiculo!=null&& vehiculo.requeridos();

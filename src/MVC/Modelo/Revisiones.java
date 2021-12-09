@@ -97,7 +97,10 @@ private Vehiculos vehiculo;
         this.setEstado(estado);
         this.setVehiculo(vehiculo);
     }
-    
+    public Revisiones() {
+        this(null,null,null,null,null,null,null);
+        
+    }
     public boolean requeridos(){
     return fecha!=null && hora!=null && tecnico!=null&&tecnico.requeridos()&& tipoRevision!=null&& observacion!=null&& estado!=null && vehiculo!=null && vehiculo.requeridos();
     }

@@ -55,12 +55,7 @@ private BaseDatos db;
 
     @Override
     public Tecnicos buscar(Tecnicos ob) {
-        //        private int cedula;
-//    private String nombre;
-//    private Date FechaNacimiento;
-//    private int telefono;
-//    private String correo;
-//    private int salario;
+   
 this.db.prepararSetencia("select * from tecnicos where Cedula=?");
         Object[] param = {ob.getCedula()};
         Object[][] valores = this.db.seleccionar(param);

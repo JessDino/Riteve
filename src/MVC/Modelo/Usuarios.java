@@ -120,6 +120,9 @@ public class Usuarios {
 public Usuarios(int cedula) {
         this(cedula,null,null,0,null,null,null,null);
     }
+public Usuarios() {
+        this(0,null,null,0,null,null,null,null);
+    }
     @Override
     public String toString() {
         return cedula + " - " + nombre + " - " + FechaNacimiento + " - " + telefono + " - " + correo + " - " + nombreUsuario + " - " + contrasena + " - " + tipoUsuario;

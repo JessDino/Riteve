@@ -12,6 +12,7 @@ import java.util.Date;
  * @author dinar
  */
 public class Tecnicos {
+
     private int cedula;
     private String nombre;
     private Date FechaNacimiento;
@@ -24,7 +25,7 @@ public class Tecnicos {
     }
 
     public void setCedula(int cedula) {
-        if (cedula<999999999) {
+        if (cedula < 999999999) {
             this.cedula = cedula;
         }
     }
@@ -34,7 +35,7 @@ public class Tecnicos {
     }
 
     public void setNombre(String nombre) {
-        if (nombre!= null && nombre.length()<=20) {
+        if (nombre != null && nombre.length() <= 20) {
             this.nombre = nombre;
         }
     }
@@ -62,7 +63,7 @@ public class Tecnicos {
     }
 
     public void setCorreo(String correo) {
-        if (correo!= null && correo.length()<=30) {
+        if (correo != null && correo.length() <= 30) {
             this.correo = correo;
         }
     }
@@ -72,7 +73,7 @@ public class Tecnicos {
     }
 
     public void setSalario(int salario) {
-        
+
         if (salario > 0 && salario < 999999999) {
             this.salario = salario;
         }
@@ -86,16 +87,23 @@ public class Tecnicos {
         this.setCorreo(correo);
         this.setSalario(salario);
     }
-public Tecnicos(int cedula) {
-    this(cedula,null,null,0,null,0);
-     
+
+    public Tecnicos(int cedula) {
+        this(cedula, null, null, 0, null, 0);
+
     }
+
+    public Tecnicos() {
+        this(0, null, null, 0, null, 0);
+
+    }
+
     @Override
     public String toString() {
         return cedula + " - " + nombre + " - " + FechaNacimiento + " - " + telefono + " - " + correo + " - " + salario;
     }
-    
-    public boolean requeridos(){
-       return cedula != 0 && nombre != null && FechaNacimiento != null && telefono != 0 && correo != null && salario !=0;
+
+    public boolean requeridos() {
+        return cedula != 0 && nombre != null && FechaNacimiento != null && telefono != 0 && correo != null && salario != 0;
     }
 }
