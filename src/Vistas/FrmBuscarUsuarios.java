@@ -96,6 +96,8 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
         ));
         jScrollPane1.setViewportView(tblUsuarios);
 
+        btnAceptar.setBackground(new java.awt.Color(102, 204, 0));
+        btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +105,8 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(102, 204, 0));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +146,7 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,7 +157,11 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
     }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        con.setUsuarios(new Usuarios ((
+        
+    
+    
+    if (this.tblUsuarios.getSelectedRow() != -1) {
+           con.setUsuarios(new Usuarios ((
                 (int)this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 0)),
                 String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 1)),
                 (LocalDate)this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 2),
@@ -167,6 +175,9 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
     con.setVista((Vista)this.getParent());
     con.cancelar();
     this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Usuarios", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

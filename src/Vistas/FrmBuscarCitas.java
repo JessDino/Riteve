@@ -57,6 +57,8 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        btnAceptar.setBackground(new java.awt.Color(102, 204, 0));
+        btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,8 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(102, 204, 0));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,14 +146,17 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        VehiculosDao vehi= new VehiculosDao(this.con.bd);
+        
+        
+        if (this.tblCitas.getSelectedRow()!=-1) {
+            VehiculosDao vehi= new VehiculosDao(this.con.bd);
         con.setCita(new Citas ((
             (int)this.tblCitas.getValueAt(this.tblCitas.getSelectedRow(), 0)),
         (LocalDate)this.tblCitas.getValueAt(this.tblCitas.getSelectedRow(), 1),
@@ -158,6 +165,9 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
         con.setVista((Vista)this.getParent());
         con.cancelar();
         this.dispose();
+        }else{
+        JOptionPane.showMessageDialog(this,"Debe seleccionar un registro" , "Tecnicos", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

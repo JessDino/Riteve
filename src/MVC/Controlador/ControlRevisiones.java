@@ -18,14 +18,22 @@ import Vistas.Vista;
 public class ControlRevisiones implements Control<Revisiones>{
 private Revisiones revision;
     private Vista vista;
-    private MariaDB bd;
+    public MariaDB bd;
     private RevisionesDao dao;
 
-    public ControlRevisiones(Revisiones revision, Vista vista, MariaDB bd, RevisionesDao dao) {
+    public ControlRevisiones( Vista vista) {
           this.vista = vista;
         this.bd=new MariaDB("127.0.0.1", "padron", "root","");
         this.revision=new Revisiones();
         this.dao=new RevisionesDao(this.bd);
+    }
+
+    public void setRevision(Revisiones revision) {
+        this.revision = revision;
+    }
+
+    public void setVista(Vista vista) {
+        this.vista = vista;
     }
     
     
