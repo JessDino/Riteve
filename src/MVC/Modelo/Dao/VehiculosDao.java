@@ -72,33 +72,28 @@ public class VehiculosDao implements Dao<Vehiculos>{
     @Override
     public Vehiculos[] listar() {
          this.db.prepararSetencia("select * from vehiculos order by  NumeroDePlaca");
-//        private int numeroDePlaca;
-//    private String marca;
-//    private String modelo;
-//    private int anio;
-//    private LocalDate fechaInscripcion;
-//    private int cedulaPropietario;
-//    private String nombrePropietario;
+
         Object[] param = {};
         Object[][] valores;
         valores = this.db.seleccionar(param);
         if (valores.length > 0&& valores!=null) {
             Vehiculos [] vehi=new Vehiculos [valores.length];
-            for (int f = 0; f <= valores.length-1; f++) {
-                String fe[]= valores[0][4].toString().split("-");
+            for (int f = 0; f < valores.length; f++) {
+                String fe[]= valores[f][4].toString().split("-");
                 int y=Integer.parseInt(fe[0]);
                 int m=Integer.parseInt(fe[1]);
                 int d=Integer.parseInt(fe[2]);
-                String anio[]= valores[0][3].toString().split("-");
+                String anio[]= valores[f][3].toString().split("-");
                 int an=Integer.parseInt(anio[0]);
              
-                vehi [f]=new Vehiculos(Integer.parseInt(valores[0][0].toString())
-                        , String.valueOf(valores[0][1])
-                        ,String.valueOf(valores[0][2])
+                vehi [f]=new Vehiculos(Integer.parseInt(valores[f][0].toString())
+                        , String.valueOf(valores[f][1])
+                        ,String.valueOf(valores[f][2])
                         ,an
                         ,LocalDate.of(y,m,d)
-                        ,Integer.parseInt(valores[0][5].toString())
-                        ,String.valueOf(valores[0][6]));
+                        ,Integer.parseInt(valores[f][5].toString())
+                        ,String.valueOf(valores[f][6]));
+                //System.out.println(vehi[f].getNombrePropietario());
             }
             return  vehi;
         }
@@ -133,20 +128,20 @@ public class VehiculosDao implements Dao<Vehiculos>{
         if (valores.length > 0&& valores!=null) {
             Vehiculos []vehi=new Vehiculos [valores.length];
             for (int f = 0; f <= valores.length-1; f++) {
-              String fe[]= valores[0][4].toString().split("-");
+              String fe[]= valores[f][4].toString().split("-");
                 int y=Integer.parseInt(fe[0]);
                 int m=Integer.parseInt(fe[1]);
                 int d=Integer.parseInt(fe[2]);
-                String anio[]= valores[0][3].toString().split("-");
+                String anio[]= valores[f][3].toString().split("-");
                 int an=Integer.parseInt(anio[0]);
              
-                vehi [f]=new Vehiculos(Integer.parseInt(valores[0][0].toString())
-                        , String.valueOf(valores[0][1])
-                        ,String.valueOf(valores[0][2])
+                vehi [f]=new Vehiculos(Integer.parseInt(valores[f][0].toString())
+                        , String.valueOf(valores[f][1])
+                        ,String.valueOf(valores[f][2])
                         ,an
                         ,LocalDate.of(y,m,d)
-                        ,Integer.parseInt(valores[0][5].toString())
-                        ,String.valueOf(valores[0][6]));
+                        ,Integer.parseInt(valores[f][5].toString())
+                        ,String.valueOf(valores[f][6]));
             }
             return vehi;
         }

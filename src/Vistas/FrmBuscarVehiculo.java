@@ -257,9 +257,12 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
         
         for (Object obj:msj) {
             Vehiculos ve=(Vehiculos)obj;
+            
             contenido.addRow(new Object[]{ve.getNumeroDePlaca(),ve.getMarca(),ve.getModelo(),ve.getAnio()
             ,ve.getFechaInscripcion(),ve.getCedulaPropietario(),ve.getNombrePropietario()});
+           
         }
+      
         this.tblVehiculo.setModel(contenido);
     }
 }

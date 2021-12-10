@@ -8,7 +8,6 @@
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/BaseDatos/BaseDatos.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/Vista.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/Control.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmVehiculo.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmCita.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/ControlVehiculo.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Revisiones.java</file>
@@ -27,6 +26,7 @@
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/ControlUsuarios.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Dao/UsuariosDao.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/ControlRevisiones.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmBuscarUsuarios.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Vehiculos.java</file>
         </group>
     </open-files>

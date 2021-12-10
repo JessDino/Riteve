@@ -122,7 +122,7 @@ public class BaseDatos {
         while (rs.next()) {
             for (int c = 0; c < rs.getMetaData().getColumnCount(); c++) {
                 datos[f][c] = rs.getObject(c + 1);
-
+                
             }
             f++;
         }
