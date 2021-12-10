@@ -91,7 +91,7 @@ private Vehiculos vehiculo;
     }
 
     @Override
-    public void buscar() {
+    public void listar() {
        Vehiculos vehi[]=this.dao.listar();
         if (vehi !=null) {
             this.vista.mostrar(vehi);
@@ -113,5 +113,5 @@ private Vehiculos vehiculo;
         
         }
     }
-    
+   
 }

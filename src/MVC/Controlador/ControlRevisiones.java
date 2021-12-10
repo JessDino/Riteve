@@ -73,10 +73,7 @@ private Revisiones revision;
         vista.mostrar(valores);
     }
 
-    @Override
-    public void buscar(Revisiones clase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public void filtrar(String des) {
@@ -88,6 +85,11 @@ private Revisiones revision;
         this.vista.notificar(mensaje);
         
         }
+    }
+
+    @Override
+    public void listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

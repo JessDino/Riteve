@@ -20,11 +20,19 @@ private Usuarios usuarios;
     private MariaDB bd;
     private UsuariosDao dao;
 
-    public ControlUsuarios(Usuarios usuarios, Vista vista, MariaDB bd, UsuariosDao dao) {
+    public ControlUsuarios( Vista vista) {
         this.vista = vista;
-        this.bd=new MariaDB("127.0.0.1", "padron", "root","");
+        this.bd=new MariaDB("127.0.0.1", "rtv", "root","");
         this.usuarios=new Usuarios ();
         this.dao=new UsuariosDao(this.bd);
+    }
+
+    public void setVista(Vista vista) {
+        this.vista = vista;
+    }
+
+    public void setUsuarios(Usuarios usuarios) {
+        this.usuarios = usuarios;
     }
     
     @Override
@@ -71,11 +79,7 @@ private Usuarios usuarios;
         vista.mostrar(valores);
     }
 
-    @Override
-    public void buscar(Usuarios clase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+ 
     @Override
     public void filtrar(String des) {
          Usuarios usua[]=this.dao.filtrar(des);
@@ -86,6 +90,17 @@ private Usuarios usuarios;
         this.vista.notificar(mensaje);
         
         }
+    }
+
+    @Override
+    public void listar() {
+         Usuarios usua[]=this.dao.listar();
+        if (usua !=null) {
+            this.vista.mostrar(usua);
+        }else{
+        Object mensaje[]={"ERROR","NO HAY RESULTADO"};
+        this.vista.notificar(mensaje);
+    }
     }
     
 }

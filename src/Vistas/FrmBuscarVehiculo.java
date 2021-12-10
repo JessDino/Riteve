@@ -31,7 +31,7 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
         initComponents();
         this.con=(ControlVehiculo)con;
         this.con.setVista(this);
-        this.con.buscar();
+        this.con.listar();
     }
 
     /**
@@ -254,15 +254,20 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
         contenido.addColumn("Fecha Inscripcion");
         contenido.addColumn("Cedula Propietario");
         contenido.addColumn("Nombre Propietario");
-        
+        contenido.addColumn("Antiguedad Vehiculo");
         for (Object obj:msj) {
             Vehiculos ve=(Vehiculos)obj;
             
             contenido.addRow(new Object[]{ve.getNumeroDePlaca(),ve.getMarca(),ve.getModelo(),ve.getAnio()
-            ,ve.getFechaInscripcion(),ve.getCedulaPropietario(),ve.getNombrePropietario()});
+            ,ve.getFechaInscripcion(),ve.getCedulaPropietario(),ve.getNombrePropietario(),LocalDate.now().getYear()-ve.getAnio()});
            
         }
       
         this.tblVehiculo.setModel(contenido);
+    }
+
+    @Override
+    public boolean verificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

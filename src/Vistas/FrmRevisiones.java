@@ -290,4 +290,9 @@ public class FrmRevisiones extends javax.swing.JDialog implements Vista{
     public void mostrar(Object[] msj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean verificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

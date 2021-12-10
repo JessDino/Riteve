@@ -14,4 +14,5 @@ public interface Vista {
      public void limpiar();
       public void notificar(Object[] msj);
        public void mostrar(Object[] msj);
+       public boolean verificar();
 }

@@ -71,11 +71,7 @@ public class ControlCitas implements Control<Citas> {
         vista.mostrar(valores);
     }
 
-    @Override
-    public void buscar(Citas clase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     @Override
     public void filtrar(String des) {
         Citas cita[] = this.dao.filtrar(des);
@@ -86,6 +82,11 @@ public class ControlCitas implements Control<Citas> {
             this.vista.notificar(mensaje);
 
         }
+    }
+
+    @Override
+    public void listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
