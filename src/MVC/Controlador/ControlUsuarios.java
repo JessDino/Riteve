@@ -39,7 +39,7 @@ private Usuarios usuarios;
     public void guardar(Usuarios clase) {
         
         if (dao.insertar(clase)) {
-             this.usuarios=clase;
+             this.usuarios=null;
              Object []mensaje={"OK","Registro agregado"};
             vista.notificar(mensaje);
         }else{
@@ -51,7 +51,7 @@ private Usuarios usuarios;
     @Override
     public void modificar(Usuarios clase) {
           if (dao.modificar(clase)) {
-             this.usuarios=clase;
+             this.usuarios=null;
              Object []mensaje={"OK","Registro modificado"};
             vista.notificar(mensaje);
         }else{
@@ -74,9 +74,11 @@ private Usuarios usuarios;
 
     @Override
     public void cancelar() {
-         Object []valores =new Object[1];
-        valores[0]=this.usuarios;
-        vista.mostrar(valores);
+          if (this.usuarios != null) {
+            Object[] valores = new Object[1];
+            valores[0] = this.usuarios;
+            vista.mostrar(valores);
+        }
     }
 
  

@@ -11,6 +11,9 @@ import MVC.Modelo.Dao.CitasDao;
 import MVC.Modelo.Dao.VehiculosDao;
 import MVC.Modelo.Vehiculos;
 import Vistas.Vista;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -76,9 +79,12 @@ public class ControlCitas implements Control<Citas> {
 
     @Override
     public void cancelar() {
-        Object[] valores = new Object[1];
+        if (this.cita!=null) {
+            Object[] valores = new Object[1];
         valores[0] = this.cita;
         vista.mostrar(valores);
+        }
+        
     }
 
     @Override
@@ -105,5 +111,6 @@ public class ControlCitas implements Control<Citas> {
         }
     }
 
-   
+    
+
 }

@@ -95,7 +95,7 @@ public class CrearXML {
                 nombre = String.valueOf(revi.getVehiculo().getNumeroDePlaca());
             }
             Source sou = new DOMSource(doc);
-            Result resul = new StreamResult(new java.io.File("C:\\Users\\usuario\\Documents", nombre + ".xml"));
+            Result resul = new StreamResult(new java.io.File("C:\\Users\\dinar\\OneDrive\\Documentos\\guardadosXML", nombre + ".xml"));
             Transformer trans = TransformerFactory.newInstance().newTransformer();
             trans.transform(sou, resul);
             return true;

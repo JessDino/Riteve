@@ -126,7 +126,7 @@ public class VehiculosDao implements Dao<Vehiculos> {
 
     @Override
     public Vehiculos[] filtrar(String fil) {
-        this.db.prepararSetencia("select * from vehiculos where Marca like (?)order by  NumeroDePlaca");
+        this.db.prepararSetencia("select * from vehiculos where NumeroDePlaca  like (?)order by  NumeroDePlaca");
 
         Object[] param = {fil};
         Object[][] valores;

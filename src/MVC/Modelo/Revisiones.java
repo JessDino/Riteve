@@ -31,6 +31,10 @@ public class Revisiones {
         return IdRevision;
     }
 
+    public void setIdRevision(int IdRevision) {
+        this.IdRevision = IdRevision;
+    }
+
     public void setVehiculo(Vehiculos vehiculo) {
         this.vehiculo = vehiculo;
     }
@@ -103,7 +107,7 @@ public class Revisiones {
         this.setObservacion(observacion);
         this.setEstado(estado);
         this.setVehiculo(vehiculo);
-        this.IdRevision=id;
+        this.setIdRevision(id);
     }
     public Revisiones(int id) {
         this(null,null,null,null,null,null,null,1);

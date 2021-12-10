@@ -10,6 +10,7 @@ import MVC.Controlador.ControlRevisiones;
 import MVC.Modelo.Revisiones;
 import MVC.Modelo.Tecnicos;
 import MVC.Modelo.Vehiculos;
+import java.awt.Color;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
@@ -19,23 +20,27 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author usuario
  */
-public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
+public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista {
 
     /**
      * Creates new form FrmBuscarRevisiones
      */
     private ControlRevisiones con;
+
     public FrmBuscarRevisiones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
- public FrmBuscarRevisiones(java.awt.Frame parent, boolean modal,Control con) {
+
+    public FrmBuscarRevisiones(java.awt.Frame parent, boolean modal, Control con) {
         super(parent, modal);
         initComponents();
-        this.con=(ControlRevisiones) con;
-        this.con.setVista( this);
+        this.getContentPane().setBackground(new Color(0, 153, 204));
+        this.con = (ControlRevisiones) con;
+        this.con.setVista(this);
         this.con.listar();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +53,7 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
         btnCancelar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtFiltrar1 = new javax.swing.JTextField();
+        txtFiltrar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRevisiones = new javax.swing.JTable();
         btnAceptar = new javax.swing.JButton();
@@ -66,11 +71,13 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setText("Buscar por modelo");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Buscar por id de revision");
 
-        txtFiltrar1.addActionListener(new java.awt.event.ActionListener() {
+        txtFiltrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFiltrar1ActionPerformed(evt);
+                txtFiltrarActionPerformed(evt);
             }
         });
 
@@ -78,32 +85,29 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(txtFiltrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(141, 141, 141))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(txtFiltrar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tblRevisiones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblRevisiones);
@@ -125,62 +129,63 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(304, 304, 304)
+                        .addComponent(btnAceptar)
+                        .addGap(184, 184, 184)
+                        .addComponent(btnCancelar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(btnAceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(159, 159, 159))
+                .addGap(218, 218, 218)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(28, 28, 28)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAceptar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(134, Short.MAX_VALUE))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnAceptar))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
+con.setRevision(null);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtFiltrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltrar1ActionPerformed
+    private void txtFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltrarActionPerformed
         con.filtrar(this.txtFiltrar.getText());
-    }//GEN-LAST:event_txtFiltrar1ActionPerformed
+    }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        if (this.tblRevisiones.getSelectedRow()!=-1) {
+        try {
+            if (this.tblRevisiones.getSelectedRow() != -1) {
 
-            con.setRevision(new Revisiones(( (LocalDate) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 1)),
-              (LocalTime) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 2),
-               new Tecnicos( (int) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 3)) ,
-                 String.valueOf(this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 4)),
-                String.valueOf(this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 5)),
-                 String.valueOf(this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 6)),
-                    new Vehiculos((int) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 7)),(int) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 0)));
-        con.setVista((Vista) this.getParent());
-        con.cancelar();
-        this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(this,"Debe seleccionar un registro" , "Revisiones", JOptionPane.ERROR_MESSAGE);
+                con.setRevision(new Revisiones(((LocalDate) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 1)),
+                        (LocalTime) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 2),
+                        new Tecnicos((int) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 3)),
+                        String.valueOf(this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 4)),
+                        String.valueOf(this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 5)),
+                        String.valueOf(this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 6)),
+                        new Vehiculos((int) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 7)), (int) this.tblRevisiones.getValueAt(this.tblRevisiones.getSelectedRow(), 0)));
+               
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Revisiones", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException ex) {
         }
-
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
@@ -228,14 +233,11 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRevisiones;
     private javax.swing.JTextField txtFiltrar;
-    private javax.swing.JTextField txtFiltrar1;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -250,21 +252,26 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
 
     @Override
     public void notificar(Object[] msj) {
-      switch (String.valueOf(msj[0])) {
+        switch (String.valueOf(msj[0])) {
             case "OK" -> {
                 JOptionPane.showMessageDialog(this, msj[1], "Revisiones", JOptionPane.INFORMATION_MESSAGE);
             }
             case "ERROR" -> {
                 JOptionPane.showMessageDialog(this, msj[1], "Revisiones", JOptionPane.ERROR_MESSAGE);
             }
-        }   
+        }
     }
 
     @Override
     public void mostrar(Object[] msj) {
-       this.tblRevisiones.removeAll();
-        DefaultTableModel contenido = new DefaultTableModel();
-        
+        this.tblRevisiones.removeAll();
+        DefaultTableModel contenido = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false;
+            }
+        };
+
 //        private LocalDate fecha;
 //    private LocalTime hora;
 //    private Tecnicos tecnico;
@@ -273,7 +280,6 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
 //    private String estado;
 //    private Vehiculos vehiculo;
 //    private int IdRevision;
-        
         contenido.addColumn("IdRevision");
         contenido.addColumn("Fecha");
         contenido.addColumn("Hora");
@@ -282,18 +288,18 @@ public class FrmBuscarRevisiones extends javax.swing.JDialog implements Vista{
         contenido.addColumn("Observaciones");
         contenido.addColumn("Estado");
         contenido.addColumn("Vehiculo");
-        
+
         for (Object obj : msj) {
             Revisiones revi = (Revisiones) obj;
-           
-            contenido.addRow(new Object[]{revi.getIdRevision()
-                    ,revi.getFecha()
-                    ,revi.getHora()
-                    ,revi.getTecnico().getCedula()
-                    ,revi.getTipoRevision()
-            ,revi.getObservacion()
-                    ,revi.getEstado()
-                    ,revi.getVehiculo().getNumeroDePlaca()});
+
+            contenido.addRow(new Object[]{revi.getIdRevision(),
+                 revi.getFecha(),
+                 revi.getHora(),
+                 revi.getTecnico().getCedula(),
+                 revi.getTipoRevision(),
+                 revi.getObservacion(),
+                 revi.getEstado(),
+                 revi.getVehiculo().getNumeroDePlaca()});
 
         }
 

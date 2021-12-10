@@ -7,23 +7,27 @@ package Vistas;
 
 import MVC.Controlador.ControlTecnicos;
 import MVC.Modelo.Tecnicos;
-import java.time.LocalDate;
+import Vistas.FrmBuscarTecnicos;
+import Vistas.Vista;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author usuario
  */
-public class FrmTecnicos extends javax.swing.JFrame implements Vista {
+public class FrmTecnicos extends javax.swing.JDialog implements Vista{
 
     /**
      * Creates new form FrmTecnicos
      */
     ControlTecnicos control;
-
-    public FrmTecnicos() {
+    public FrmTecnicos(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        this.getContentPane().setBackground(new Color(0, 153, 204));
         control = new ControlTecnicos(this);
+
     }
 
     /**
@@ -56,55 +60,55 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
         dpFecha = new com.github.lgooddatepicker.components.DatePicker();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
         btnAgregar.setText("Agregar");
-        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
         btnAgregar.setEnabled(false);
-        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
         btnEliminar.setBackground(new java.awt.Color(102, 204, 0));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
         btnBuscar.setBackground(new java.awt.Color(102, 204, 0));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
         btnActualizar.setBackground(new java.awt.Color(102, 204, 0));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
 
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
-        btnNuevo.setText("Nuevo");
         btnNuevo.setBackground(new java.awt.Color(102, 204, 0));
         btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
+        btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -118,57 +122,54 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnNuevo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnActualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addComponent(btnBuscar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnEliminar)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnNuevo)
-                            .addComponent(btnEliminar))))
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(45, 45, 45))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tecnicos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(102, 204, 0))); // NOI18N
 
-        jLabel2.setText("Cedula:");
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel2.setText("Cedula:");
 
-        jLabel3.setText("Nombre completo:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel3.setText("Nombre completo:");
 
-        jLabel5.setText("Telefono:");
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel5.setText("Telefono:");
 
-        jLabel6.setText("Correo electronico: ");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel6.setText("Correo electronico: ");
 
-        jLabel7.setText("Salario:");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel7.setText("Salario:");
 
-        jLabel4.setText("Fecha de Nacimiento:");
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel4.setText("Fecha de Nacimiento:");
 
         txtCedula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -257,28 +258,24 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(165, 165, 165))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalarioActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         this.cambiarEstados();
@@ -287,6 +284,7 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
             if (verificar()) {
 
                 control.guardar(new Tecnicos(Integer.parseInt(txtCedula.getText()), txtNombre.getText(), dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), Integer.parseInt(txtSalario.getText())));
+                this.limpiar();
             } else {
                 JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Tecnicos", JOptionPane.ERROR_MESSAGE);
 
@@ -294,13 +292,20 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Tecnicos", JOptionPane.ERROR_MESSAGE);
         };
-
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (verificar()) {
+            control.eliminar(new Tecnicos(Integer.parseInt(txtCedula.getText()), txtNombre.getText(), dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), Integer.parseInt(txtSalario.getText())));
+            this.limpiar();
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        FrmBuscarTecnicos ft = new FrmBuscarTecnicos(this, true, control);
+        FrmBuscarTecnicos ft = new FrmBuscarTecnicos(null, true, control);
         ft.setVisible(true);
-       
+        control.setVista(this);
+        control.cancelar();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -308,7 +313,8 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
 
             if (verificar()) {
                 control.modificar(new Tecnicos(Integer.parseInt(txtCedula.getText()), txtNombre.getText(), dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), Integer.parseInt(txtSalario.getText())));
-                        }
+                this.limpiar();
+            }
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Tecnicos", JOptionPane.ERROR_MESSAGE);
@@ -316,16 +322,14 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
+txtCedula.setEditable(true);
         this.cambiarEstados();
         this.limpiar();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-          if (verificar()) {
-                control.eliminar(new Tecnicos(Integer.parseInt(txtCedula.getText()), txtNombre.getText(), dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), Integer.parseInt(txtSalario.getText())));
-                        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,10 +358,17 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTecnicos().setVisible(true);
+                FrmTecnicos dialog = new FrmTecnicos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -406,35 +417,38 @@ public class FrmTecnicos extends javax.swing.JFrame implements Vista {
 
     @Override
     public void notificar(Object[] msj) {
- switch (String.valueOf(msj[0])) {
+        switch (String.valueOf(msj[0])) {
             case "OK" -> {
                 JOptionPane.showMessageDialog(this, msj[1], "Tecnicos", JOptionPane.INFORMATION_MESSAGE);
             }
             case "ERROR" -> {
                 JOptionPane.showMessageDialog(this, msj[1], "Tecnicos", JOptionPane.ERROR_MESSAGE);
             }
-        }       
+        }
     }
 
     @Override
     public void mostrar(Object[] msj) {
         txtCedula.setEditable(false);
-       Tecnicos tec = (Tecnicos) msj[0];
-       txtCedula.setText(String.valueOf(tec.getCedula()));
+        Tecnicos tec = (Tecnicos) msj[0];
+        if (tec.requeridos()) {
+             txtCedula.setText(String.valueOf(tec.getCedula()));
         txtCorreo.setText(tec.getCorreo());
         txtNombre.setText(tec.getNombre());
         txtSalario.setText(String.valueOf(tec.getSalario()));
         txtTelefono.setText(String.valueOf(tec.getTelefono()));
         dpFecha.setDate(tec.getFechaNacimiento());
+        }
+       
     }
 
     @Override
     public boolean verificar() {
-        return !txtCedula.getText().equals("")&&
-        !txtCorreo.getText().equals("")&&
-        !dpFecha.getText().equals("")&&
-        !txtNombre.getText().equals("")&&
-        !txtSalario.getText().equals("")&&
-        !txtTelefono.getText().equals("");
+        return !txtCedula.getText().equals("")
+                && !txtCorreo.getText().equals("")
+                && !dpFecha.getText().equals("")
+                && !txtNombre.getText().equals("")
+                && !txtSalario.getText().equals("")
+                && !txtTelefono.getText().equals("");
     }
 }

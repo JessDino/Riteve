@@ -1,29 +1,31 @@
-package Vistas;
-
-import MVC.Controlador.ControlUsuarios;
-import MVC.Modelo.Usuarios;
-
-import javax.swing.JOptionPane;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Vistas;
+
+import MVC.Controlador.ControlUsuarios;
+import MVC.Modelo.Usuarios;
+import Vistas.FrmBuscarUsuarios;
+import Vistas.Vista;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
  */
-public class FrmUsuarios extends javax.swing.JFrame implements Vista {
+public class FrmUsuarios extends javax.swing.JDialog implements Vista{
 
     /**
      * Creates new form FrmUsuarios
      */
     ControlUsuarios control;
-
-    public FrmUsuarios() {
+    public FrmUsuarios(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-
+        this.getContentPane().setBackground(new Color(0, 153, 204));
         control = new ControlUsuarios(this);
     }
 
@@ -36,6 +38,12 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        btnAgregar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnNuevo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,14 +62,90 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
         txtTelefono = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        btnAgregar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnNuevo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
+        btnAgregar.setEnabled(false);
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBackground(new java.awt.Color(102, 204, 0));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setBackground(new java.awt.Color(102, 204, 0));
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.setBackground(new java.awt.Color(102, 204, 0));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
+        btnNuevo.setText("Nuevo");
+        btnNuevo.setBackground(new java.awt.Color(102, 204, 0));
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(btnNuevo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAgregar)
+                .addGap(32, 32, 32)
+                .addComponent(btnActualizar)
+                .addGap(27, 27, 27)
+                .addComponent(btnEliminar)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnNuevo)
+                        .addComponent(btnAgregar)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Usuarios", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(102, 204, 0))); // NOI18N
 
@@ -206,84 +290,6 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
                 .addGap(110, 110, 110))
         );
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
-        btnAgregar.setText("Agregar");
-        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
-        btnAgregar.setEnabled(false);
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBackground(new java.awt.Color(102, 204, 0));
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.setBackground(new java.awt.Color(102, 204, 0));
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.setBackground(new java.awt.Color(102, 204, 0));
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
-        btnNuevo.setText("Nuevo");
-        btnNuevo.setBackground(new java.awt.Color(102, 204, 0));
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnNuevo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAgregar)
-                .addGap(32, 32, 32)
-                .addComponent(btnActualizar)
-                .addGap(27, 27, 27)
-                .addComponent(btnEliminar)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnNuevo)
-                            .addComponent(btnAgregar))))
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -302,19 +308,61 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        this.cambiarEstados();
+        txtContrasena.setEnabled(true);
+        try {
+            if (verificar()) {
+
+                control.guardar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
+                    dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), txtContrasena.getText(), cmbTipo.getSelectedItem().toString()));
+            this.limpiar();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Usuario", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Usuario", JOptionPane.ERROR_MESSAGE);
+        };
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (verificar()) {
+            control.eliminar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
+                dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), txtContrasena.getText(), cmbTipo.getSelectedItem().toString()));
+        limpiar();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Usuarios", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        try {
+            if (verificar()) {
+                control.modificar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
+                    dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), "++++++++", cmbTipo.getSelectedItem().toString()));
+            this.limpiar();
+        }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Usuario", JOptionPane.ERROR_MESSAGE);
+        };
+
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        FrmBuscarUsuarios fu = new FrmBuscarUsuarios(this, true, control);
+        FrmBuscarUsuarios fu = new FrmBuscarUsuarios(null, true, control);
         fu.setVisible(true);
+        control.setVista(this);
+        control.cancelar();
         txtContrasena.setEnabled(false);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -324,48 +372,12 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
         this.limpiar();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        this.cambiarEstados();
-        txtContrasena.setEnabled(true);
-        try {
-            if (verificar()) {
-
-                control.guardar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
-                         dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), txtContrasena.getText(), cmbTipo.getSelectedItem().toString()));
-            } else {
-                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Usuario", JOptionPane.ERROR_MESSAGE);
-
-            }
-
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Usuario", JOptionPane.ERROR_MESSAGE);
-        };
-
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-
-        try {
-            if (verificar()) {
-                control.modificar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
-                         dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), "++++++++", cmbTipo.getSelectedItem().toString()));
-            }
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Usuario", JOptionPane.ERROR_MESSAGE);
-        };
-
-
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if (verificar()) {
-            control.eliminar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
-                     dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), txtContrasena.getText(), cmbTipo.getSelectedItem().toString()));
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
-        
+
     }//GEN-LAST:event_txtNombreUsuarioActionPerformed
 
     /**
@@ -395,10 +407,17 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmUsuarios().setVisible(true);
+                FrmUsuarios dialog = new FrmUsuarios(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -466,7 +485,8 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
     @Override
     public void mostrar(Object[] msj) {
         Usuarios usuario = (Usuarios) msj[0];
-        txtCedulaU.setText(String.valueOf(usuario.getCedula()));
+        if (usuario.requeridos()) {
+             txtCedulaU.setText(String.valueOf(usuario.getCedula()));
         txtContrasena.setText("++++");
         txtCorreo.setText(usuario.getCorreo());
         txtNombre.setText(usuario.getNombre());
@@ -478,6 +498,9 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
         } else {
             cmbTipo.setSelectedIndex(1);
         }
+        }
+        
+       
     }
 
     @Override
@@ -486,4 +509,5 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista {
                 && !txtNombre.getText().equals("") && !txtNombreUsuario.getText().equals("") && !txtTelefono.getText().equals("")
                 && !dpFecha.getText().equals("");
     }
+
 }

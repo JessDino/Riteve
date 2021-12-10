@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import java.awt.Color;
+
 /**
  *
  * @author usuario
@@ -12,14 +14,11 @@ package Vistas;
 public class FrmInicio extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmInicio
+     * Creates new form FrmOpciones
      */
-    
-    
     public FrmInicio() {
         initComponents();
-        
-        
+        this.getContentPane().setBackground(new Color(0, 153, 204));
     }
 
     /**
@@ -31,21 +30,135 @@ public class FrmInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnVehiculo = new javax.swing.JButton();
+        btnTecnico = new javax.swing.JButton();
+        btnRevisiones = new javax.swing.JButton();
+        btnCitas = new javax.swing.JButton();
+        btnUsuario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnVehiculo.setBackground(new java.awt.Color(102, 204, 0));
+        btnVehiculo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vehiculo.png"))); // NOI18N
+        btnVehiculo.setText("Vehiculo");
+        btnVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVehiculoActionPerformed(evt);
+            }
+        });
+
+        btnTecnico.setBackground(new java.awt.Color(102, 204, 0));
+        btnTecnico.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnTecnico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/tecnico.png"))); // NOI18N
+        btnTecnico.setText("Tecnico");
+        btnTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTecnicoActionPerformed(evt);
+            }
+        });
+
+        btnRevisiones.setBackground(new java.awt.Color(102, 204, 0));
+        btnRevisiones.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnRevisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/revisiones.png"))); // NOI18N
+        btnRevisiones.setText("Revisión");
+        btnRevisiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRevisionesActionPerformed(evt);
+            }
+        });
+
+        btnCitas.setBackground(new java.awt.Color(102, 204, 0));
+        btnCitas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/citas.png"))); // NOI18N
+        btnCitas.setText("Cita");
+        btnCitas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCitasActionPerformed(evt);
+            }
+        });
+
+        btnUsuario.setBackground(new java.awt.Color(102, 204, 0));
+        btnUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/usuarios.png"))); // NOI18N
+        btnUsuario.setText("Usuario");
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo.png"))); // NOI18N
+        jLabel1.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 493, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnVehiculo)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRevisiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTecnico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(btnCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRevisiones, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculoActionPerformed
+        FrmVehiculos vehi= new FrmVehiculos(this,true);
+        vehi.setVisible(true);
+    }//GEN-LAST:event_btnVehiculoActionPerformed
+
+    private void btnTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTecnicoActionPerformed
+      FrmTecnicos tec= new FrmTecnicos (this,true);
+      tec.setVisible(true);
+      
+    }//GEN-LAST:event_btnTecnicoActionPerformed
+
+    private void btnRevisionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevisionesActionPerformed
+        FrmRevisiones re= new FrmRevisiones(this,true);
+        re.setVisible(true);
+    }//GEN-LAST:event_btnRevisionesActionPerformed
+
+    private void btnCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCitasActionPerformed
+FrmCitas ci=new FrmCitas(this,true);
+ci.setVisible(true);
+    }//GEN-LAST:event_btnCitasActionPerformed
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        FrmUsuarios usua=new FrmUsuarios(this,true);
+        usua.setVisible(true);
+    }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,6 +186,7 @@ public class FrmInicio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -83,5 +197,11 @@ public class FrmInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCitas;
+    private javax.swing.JButton btnRevisiones;
+    private javax.swing.JButton btnTecnico;
+    private javax.swing.JButton btnUsuario;
+    private javax.swing.JButton btnVehiculo;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,6 +10,7 @@ import MVC.Modelo.Citas;
 import MVC.Modelo.Vehiculos;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -121,7 +122,7 @@ public class CitasDao implements Dao<Citas>{
                 int h =Integer.parseInt(time[0]);
                 int mi =Integer.parseInt(time[1]);
                 int s =Integer.parseInt(time[2]);
-                ci [f]=  new  Citas((int) valores[f][0], LocalDate.of(y, m, d),LocalTime.of(h, mi, s),vehi.buscar(new Vehiculos( (int)valores[f][0])));
+                ci [f]=  new  Citas((int) valores[f][0], LocalDate.of(y, m, d),LocalTime.of(h, mi, s),vehi.buscar(new Vehiculos( (int)valores[f][3])));
             }
             return ci;
         }

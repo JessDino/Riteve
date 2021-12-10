@@ -77,9 +77,13 @@ private Tecnicos tecnico;
 
     @Override
     public void cancelar() {
-       Object []valores =new Object[1];
+       
+        
+         if (this.tecnico != null) {
+           Object []valores =new Object[1];
         valores[0]=this.tecnico;
         vista.mostrar(valores);
+        }
     }
 
    

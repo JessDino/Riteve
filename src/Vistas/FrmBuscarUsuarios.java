@@ -8,6 +8,7 @@ package Vistas;
 import MVC.Controlador.Control;
 import MVC.Controlador.ControlUsuarios;
 import MVC.Modelo.Usuarios;
+import java.awt.Color;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,23 +17,27 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author usuario
  */
-public class FrmBuscarUsuarios extends javax.swing.JDialog implements Vista{
+public class FrmBuscarUsuarios extends javax.swing.JDialog implements Vista {
 
     /**
      * Creates new form FrmBuscarUsuarios
      */
     private ControlUsuarios con;
+
     public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
+
+    public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal, Control con) {
         super(parent, modal);
         initComponents();
-        this.con=(ControlUsuarios)con;
+        this.getContentPane().setBackground(new Color(0, 153, 204));
+        this.con = (ControlUsuarios) con;
         this.con.setVista(this);
         this.con.listar();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,7 +59,8 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("Buscar por modelo");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Buscar por nombre");
 
         txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,31 +73,31 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblUsuarios);
@@ -122,31 +128,32 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(218, 218, 218)
+                                .addComponent(btnAceptar)
+                                .addGap(198, 198, 198)
+                                .addComponent(btnCancelar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(247, 247, 247)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(btnAceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(159, 159, 159))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,31 +164,30 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
     }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        
-    
-    
-    if (this.tblUsuarios.getSelectedRow() != -1) {
-           con.setUsuarios(new Usuarios ((
-                (int)this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 0)),
-                String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 1)),
-                (LocalDate)this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 2),
-                (int)this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 3),
-        String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 4)),
-                String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 5)),
-                "+++++++++",
-                String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 6))
-        )
-             );
-    con.setVista((Vista)this.getParent());
-    con.cancelar();
-    this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Usuarios", JOptionPane.ERROR_MESSAGE);
+
+        try {
+            if (this.tblUsuarios.getSelectedRow() != -1) {
+                con.setUsuarios(new Usuarios(((int) this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 0)),
+                        String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 1)),
+                        (LocalDate) this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 2),
+                        (int) this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 3),
+                        String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 4)),
+                        String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 5)),
+                        "+++++++++",
+                        String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 6))
+                )
+                );
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Usuarios", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException ex) {
         }
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
+con.setUsuarios(null);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -249,20 +255,25 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
 
     @Override
     public void notificar(Object[] msj) {
-  switch(String.valueOf(msj[0])){
-            case "OK"->{
-            JOptionPane.showMessageDialog(this, msj[1],"USUARIOS",JOptionPane.INFORMATION_MESSAGE);
+        switch (String.valueOf(msj[0])) {
+            case "OK" -> {
+                JOptionPane.showMessageDialog(this, msj[1], "USUARIOS", JOptionPane.INFORMATION_MESSAGE);
             }
-            case "ERROR"->{
-            JOptionPane.showMessageDialog(this, msj[1],"USUARIOS",JOptionPane.ERROR_MESSAGE);
+            case "ERROR" -> {
+                JOptionPane.showMessageDialog(this, msj[1], "USUARIOS", JOptionPane.ERROR_MESSAGE);
             }
-        }        
+        }
     }
 
     @Override
     public void mostrar(Object[] msj) {
-         this.tblUsuarios.removeAll();
-        DefaultTableModel contenido=new DefaultTableModel ();
+        this.tblUsuarios.removeAll();
+        DefaultTableModel contenido = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false;
+            }
+        };
         contenido.addColumn("Cedula");
         contenido.addColumn("Nombre");
         contenido.addColumn("Fecha de nacimiento");
@@ -270,15 +281,15 @@ public FrmBuscarUsuarios(java.awt.Frame parent, boolean modal,Control con) {
         contenido.addColumn("Correo");
         contenido.addColumn("Nombre de usuario");
         contenido.addColumn("Tipo usuario");
-        
-        for (Object obj:msj) {
-            Usuarios usua=(Usuarios)obj;
-            
-            contenido.addRow(new Object[]{usua.getCedula(),usua.getNombre(),usua.getFechaNacimiento()
-            ,usua.getTelefono(),usua.getCorreo(),usua.getNombreUsuario(),usua.getTipoUsuario()});
-           
+
+        for (Object obj : msj) {
+            Usuarios usua = (Usuarios) obj;
+
+            contenido.addRow(new Object[]{usua.getCedula(), usua.getNombre(), usua.getFechaNacimiento(),
+                usua.getTelefono(), usua.getCorreo(), usua.getNombreUsuario(), usua.getTipoUsuario()});
+
         }
-      
+
         this.tblUsuarios.setModel(contenido);
     }
 

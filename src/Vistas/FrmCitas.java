@@ -9,6 +9,9 @@ import MVC.Controlador.ControlCitas;
 import MVC.Modelo.Citas;
 import MVC.Modelo.Dao.VehiculosDao;
 import MVC.Modelo.Vehiculos;
+import Vistas.FrmBuscarCitas;
+import Vistas.Vista;
+import java.awt.Color;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
@@ -16,17 +19,18 @@ import javax.swing.JOptionPane;
  *
  * @author usuario
  */
-public class FrmCitas extends javax.swing.JFrame implements Vista {
+public class FrmCitas extends javax.swing.JDialog implements Vista{
 
     /**
      * Creates new form FrmCitas
      */
-    ControlCitas control;
+     ControlCitas control;
     Vehiculos vehi;
     VehiculosDao daoVehi;
-
-    public FrmCitas() {
+    public FrmCitas(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+         this.getContentPane().setBackground(new Color(0, 153, 204));
         control = new ControlCitas(this);
         daoVehi = new VehiculosDao(this.control.bd);
     }
@@ -70,7 +74,7 @@ public class FrmCitas extends javax.swing.JFrame implements Vista {
         btnBuscar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Citas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(102, 204, 0))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(102, 204, 0));
@@ -83,55 +87,55 @@ public class FrmCitas extends javax.swing.JFrame implements Vista {
             }
         });
 
-        jLabel9.setText("Número de placa:");
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel9.setText("Número de placa:");
 
-        jLabel10.setText("Marca:");
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel10.setText("Marca:");
 
         txtMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel11.setText("Modelo:");
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel11.setText("Modelo:");
 
-        jLabel1.setText("Id Cita:");
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel1.setText("Id Cita:");
 
         txtModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel2.setText("Fecha:");
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel2.setText("Fecha:");
 
-        jLabel4.setText("Año:");
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel4.setText("Año:");
 
-        jLabel3.setText("Hora:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel3.setText("Hora:");
 
         txtAnio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel8.setText("Nombre del propietario:");
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel8.setText("Nombre del propietario:");
 
-        jLabel6.setText("Fecha de inscripción:");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel6.setText("Fecha de inscripción:");
 
-        jLabel12.setText("Antigüedad del vehiculo:");
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel12.setText("Antigüedad del vehiculo:");
 
-        jLabel7.setText("Cedula propietario:");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel7.setText("Cedula propietario:");
 
         txtNumPlaca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNumPlaca.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +196,7 @@ public class FrmCitas extends javax.swing.JFrame implements Vista {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombrePropiV, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dpFechaV, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(49, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,51 +252,51 @@ public class FrmCitas extends javax.swing.JFrame implements Vista {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnGuardar.setBackground(new java.awt.Color(102, 204, 0));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
-        btnGuardar.setBackground(new java.awt.Color(102, 204, 0));
         btnGuardar.setEnabled(false);
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
         btnEliminar.setBackground(new java.awt.Color(102, 204, 0));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
         btnActualizar.setBackground(new java.awt.Color(102, 204, 0));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
 
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
         btnBuscar.setBackground(new java.awt.Color(102, 204, 0));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
-        btnNuevo.setText("Nuevo");
         btnNuevo.setBackground(new java.awt.Color(102, 204, 0));
         btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
+        btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -324,10 +328,9 @@ public class FrmCitas extends javax.swing.JFrame implements Vista {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBuscar))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -337,19 +340,19 @@ public class FrmCitas extends javax.swing.JFrame implements Vista {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -358,75 +361,6 @@ public class FrmCitas extends javax.swing.JFrame implements Vista {
     private void txtIdCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCitaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdCitaActionPerformed
-
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
-        this.cambiarEstados();
-        this.limpiar();
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        this.cambiarEstados();
-
-        try {
-            if (verificar()) {
-
-//                 private int idCita;
-//    private Date fecha;
-//    private String hora;
-//    private Vehiculos vehiculo;
-System.out.println(tpHora.getTime());
-                if (vehi != null) {
-                    control.guardar(new Citas(1, dpFecha.getDate(), tpHora.getTime(), vehi));
-                } else {
-                    Vehiculos ve = new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarca.getText(), txtModelo.getText(), Integer.parseInt(txtAnio.getText()), dpFechaV.getDate(), Integer.parseInt(txtCed.getText()), txtNombrePropiV.getText());
-                    daoVehi.insertar(ve);
-                    control.guardar(new Citas(1, dpFecha.getDate(), tpHora.getTime(), ve));
-                }
-
-            } else {
-                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Citas", JOptionPane.ERROR_MESSAGE);
-
-            }
-
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Citas", JOptionPane.ERROR_MESSAGE);
-        };
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-
-        try {
-            if (verificar()) {
-
-                
-                control.modificar(new Citas(Integer.parseInt(txtIdCita.getText()), dpFecha.getDate(), tpHora.getTime(), daoVehi.buscar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText())))));
-            }
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Citas", JOptionPane.ERROR_MESSAGE);
-        };
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if (verificar()) {
-            
-            control.eliminar(new Citas(Integer.parseInt(txtIdCita.getText()), dpFecha.getDate(), tpHora.getTime(), daoVehi.buscar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText())))));
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
- FrmBuscarCitas cit = new FrmBuscarCitas(this, true, control);
-        cit.setVisible(true);
-                        txtCed.setEditable(false);
-
-                txtMarca.setEditable(false);
-                txtModelo.setEditable(false);
-                txtNombrePropiV.setEditable(false);
-                dpFechaV.setEnabled(false);
-                txtAnio.setEditable(false);
-                txtNumPlaca.setEditable(false);
-                txtAnti.setEditable(false);
-    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtNumPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPlacaActionPerformed
 
@@ -451,6 +385,91 @@ System.out.println(tpHora.getTime());
             txtAnio.setEditable(false);
         }
     }//GEN-LAST:event_txtNumPlacaActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        this.cambiarEstados();
+
+        try {
+            if (verificar()) {
+
+                //                 private int idCita;
+                //    private Date fecha;
+                //    private String hora;
+                //    private Vehiculos vehiculo;
+                System.out.println(tpHora.getTime());
+                if (vehi != null) {
+                    control.guardar(new Citas(1, dpFecha.getDate(), tpHora.getTime(), vehi));
+                    this.limpiar();
+                } else {
+                    Vehiculos ve = new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarca.getText(), txtModelo.getText(), Integer.parseInt(txtAnio.getText()), dpFechaV.getDate(), Integer.parseInt(txtCed.getText()), txtNombrePropiV.getText());
+                    daoVehi.insertar(ve);
+                    control.guardar(new Citas(1, dpFecha.getDate(), tpHora.getTime(), ve));
+                    this.limpiar();
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Citas", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Citas", JOptionPane.ERROR_MESSAGE);
+        };
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try{
+            if (verificar()) {
+
+                control.eliminar(new Citas(Integer.parseInt(txtIdCita.getText()), dpFecha.getDate(), tpHora.getTime(), daoVehi.buscar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText())))));
+                this.limpiar();
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Citas", JOptionPane.ERROR_MESSAGE);
+
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Citas", JOptionPane.ERROR_MESSAGE);
+        };
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        try {
+            if (verificar()) {
+
+                control.modificar(new Citas(Integer.parseInt(txtIdCita.getText()), dpFecha.getDate(), tpHora.getTime(), daoVehi.buscar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText())))));
+                this.limpiar();
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Citas", JOptionPane.ERROR_MESSAGE);
+
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Citas", JOptionPane.ERROR_MESSAGE);
+        };
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        FrmBuscarCitas cit = new FrmBuscarCitas(null, true, control);
+        cit.setVisible(true);
+        control.setVista(this);
+        control.cancelar();
+       
+        txtCed.setEditable(false);
+
+        txtMarca.setEditable(false);
+        txtModelo.setEditable(false);
+        txtNombrePropiV.setEditable(false);
+        dpFechaV.setEnabled(false);
+        txtAnio.setEditable(false);
+        txtNumPlaca.setEditable(false);
+        txtAnti.setEditable(false);
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+
+        this.cambiarEstados();
+        this.limpiar();
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -479,10 +498,17 @@ System.out.println(tpHora.getTime());
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmCitas().setVisible(true);
+                FrmCitas dialog = new FrmCitas(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -533,8 +559,8 @@ System.out.println(tpHora.getTime());
         txtNombrePropiV.setEditable(true);
         dpFechaV.setEnabled(true);
         txtAnio.setEditable(true);
-txtNumPlaca.setEditable(true);
-dpFecha.setEnabled(true);
+        txtNumPlaca.setEditable(true);
+        dpFecha.setEnabled(true);
     }
 
     @Override
@@ -566,11 +592,11 @@ dpFecha.setEnabled(true);
 
     @Override
     public void mostrar(Object[] msj) {
-       Citas ci = (Citas) msj[0];
-        
-        tpHora.setTime(ci.getHora());
+        Citas ci = (Citas) msj[0];
+        if (ci.requeridos()) {
+             tpHora.setTime(ci.getHora());
         txtAnio.setText(String.valueOf(ci.getVehiculo().getAnio()));
-        txtAnti.setText(String.valueOf(LocalDate.now().getYear()-ci.getVehiculo().getAnio()));
+        txtAnti.setText(String.valueOf(LocalDate.now().getYear() - ci.getVehiculo().getAnio()));
         txtCed.setText(String.valueOf(ci.getVehiculo().getCedulaPropietario()));
         txtIdCita.setText(String.valueOf(ci.getIdCita()));
         txtMarca.setText(ci.getVehiculo().getMarca());
@@ -578,16 +604,17 @@ dpFecha.setEnabled(true);
         txtNombrePropiV.setText(ci.getVehiculo().getNombrePropietario());
         txtNumPlaca.setText(String.valueOf(ci.getVehiculo().getNumeroDePlaca()));
         dpFecha.setDate(ci.getFecha());
-        dpFechaV.setDate(ci.getVehiculo().getFechaInscripcion());
-       
-        
+        dpFechaV.setDate(ci.getVehiculo().getFechaInscripcion()); 
+        }
+      
+
     }
 
     @Override
     public boolean verificar() {
         return !tpHora.getText().equals("")
                 && !txtAnio.getText().equals("")
-//                && !txtAnti.getText().equals("")
+                //                && !txtAnti.getText().equals("")
                 && !txtCed.getText().equals("")
                 && //        !txtIdCita.getText().equals("") &&
                 !txtMarca.getText().equals("")

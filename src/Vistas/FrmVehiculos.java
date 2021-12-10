@@ -7,23 +7,26 @@ package Vistas;
 
 import MVC.Controlador.ControlVehiculo;
 import MVC.Modelo.Vehiculos;
+import Vistas.FrmBuscarVehiculo;
+import Vistas.Vista;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author usuario
  */
-public class FrmVehiculos extends javax.swing.JFrame implements Vista {
+public class FrmVehiculos extends javax.swing.JDialog implements Vista{
 
     /**
      * Creates new form FrmVehiculos
      */
     ControlVehiculo control;
-
-    public FrmVehiculos() {
+    public FrmVehiculos(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        this.getContentPane().setBackground(new Color(0, 153, 204));
         control = new ControlVehiculo(this);
-
     }
 
     /**
@@ -59,37 +62,37 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
         btnActualizar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Vehiculos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(102, 204, 0))); // NOI18N
 
-        jLabel1.setText("Número de placa:");
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel1.setText("Número de placa:");
 
-        jLabel2.setText("Marca:");
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel2.setText("Marca:");
 
-        jLabel3.setText("Modelo:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel3.setText("Modelo:");
 
-        jLabel4.setText("Año:");
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel4.setText("Año:");
 
-        jLabel6.setText("Fecha de inscripción:");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel6.setText("Fecha de inscripción:");
 
-        jLabel7.setText("Cedula propietario:");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel7.setText("Cedula propietario:");
 
-        jLabel8.setText("Nombre del propietario:");
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel8.setText("Nombre del propietario:");
 
         txtMarcaV.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -203,46 +206,51 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
         btnAgregar.setText("Agregar");
-        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
         btnAgregar.setEnabled(false);
-        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
         btnEliminar.setBackground(new java.awt.Color(102, 204, 0));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
         btnBuscar.setBackground(new java.awt.Color(102, 204, 0));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
         btnActualizar.setBackground(new java.awt.Color(102, 204, 0));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
 
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
-        btnNuevo.setText("Nuevo");
         btnNuevo.setBackground(new java.awt.Color(102, 204, 0));
         btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
+        btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -286,23 +294,19 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 215, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
@@ -323,20 +327,46 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
             JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Vehiculos", JOptionPane.ERROR_MESSAGE);
         };
 
-
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
 
             if (verificar()) {
-                control.modificar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
+                control.eliminar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
+                limpiar();
+            }else {
+                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Vehiculo", JOptionPane.ERROR_MESSAGE);
+
             }
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Vehiculos", JOptionPane.ERROR_MESSAGE);
         };
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        FrmBuscarVehiculo fv = new FrmBuscarVehiculo(null, true, control);
+        fv.setVisible(true);
+        control.setVista(this);
+        control.cancelar();
+        txtNumPlaca.setEnabled(false);
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        try {
+
+            if (verificar()) {
+                control.modificar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
+            }else {
+                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Vehiculo", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Vehiculos", JOptionPane.ERROR_MESSAGE);
+        };
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -344,17 +374,6 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
         this.cambiarEstados();
         this.limpiar();
     }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        FrmBuscarVehiculo fv = new FrmBuscarVehiculo(this, true, control);
-        fv.setVisible(true);
-        txtNumPlaca.setEnabled(false);
-    }//GEN-LAST:event_btnBuscarActionPerformed
-    @Override
-    public boolean verificar() {
-        return txtNumPlaca.getText() != null && txtMarcaV.getText() != null && txtMarcaV.getText() != null && txtModeloV.getText() != null && txtAnio.getText() != null && dpFecha.getDate() != null && txtCedula.getText() != null && txtNombrePropiV.getText() != null;
-
-    }
 
     /**
      * @param args the command line arguments
@@ -383,10 +402,17 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmVehiculos().setVisible(true);
+                FrmVehiculos dialog = new FrmVehiculos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -417,6 +443,7 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
     private javax.swing.JFormattedTextField txtNumPlaca;
     // End of variables declaration//GEN-END:variables
 
+
     @Override
     public void cambiarEstados() {
 
@@ -425,6 +452,7 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
         this.btnActualizar.setEnabled(!this.btnActualizar.isEnabled());
         this.btnEliminar.setEnabled(!this.btnEliminar.isEnabled());
         this.btnBuscar.setEnabled(!this.btnBuscar.isEnabled());
+        
     }
 
     @Override
@@ -453,13 +481,26 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
     @Override
     public void mostrar(Object[] msj) {
         Vehiculos ve = (Vehiculos) msj[0];
-
-        txtAnio.setText(String.valueOf(ve.getAnio()));
+        if (ve.requeridos()) {
+             txtAnio.setText(String.valueOf(ve.getAnio()));
         txtCedula.setText(String.valueOf(ve.getCedulaPropietario()));
         txtMarcaV.setText(ve.getMarca());
         txtModeloV.setText(ve.getModelo());
         txtNombrePropiV.setText(ve.getNombrePropietario());
         txtNumPlaca.setText(String.valueOf(ve.getNumeroDePlaca()));
         dpFecha.setDate(ve.getFechaInscripcion());
+        }
+       
+    }
+
+    @Override
+    public boolean verificar() {
+        return !txtAnio.getText().equals("") &&
+        !txtCedula.getText().equals("") &&
+        !txtMarcaV.getText().equals("") &&
+        !txtModeloV.getText().equals("") &&
+        !txtNombrePropiV.getText().equals("") &&
+        !txtNumPlaca.getText().equals("") &&
+        !dpFecha.getText().equals("") ;
     }
 }

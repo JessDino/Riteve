@@ -34,7 +34,7 @@ private BaseDatos db;
     @Override
     public boolean modificar(Tecnicos ob) {
         if (ob.requeridos() && this.validarUnicos(ob)) {
-            this.db.prepararSetencia("Update into tecnicos set NombreCompleto=?,FechaNacimiento=?,Telefono=?,CorreoElectronico=?,Salario=? where Cedula=?");
+            this.db.prepararSetencia("Update tecnicos set NombreCompleto=?,FechaNacimiento=?,Telefono=?,CorreoElectronico=?,Salario=? where Cedula=?");
 
             Object[] param = {ob.getNombre(), ob.getFechaNacimiento(), ob.getTelefono(), ob.getCorreo(), ob.getSalario(),
                  ob.getCedula()};
@@ -46,7 +46,7 @@ private BaseDatos db;
     @Override
     public boolean eliminar(Tecnicos ob) {
          if (ob.requeridos()) {
-            this.db.prepararSetencia("Delete tecnicos where Cedula =?");
+            this.db.prepararSetencia("Delete from tecnicos where Cedula =?");
 
             Object[] param = {ob.getCedula()};
             return this.db.ejecutar(param);
@@ -97,7 +97,7 @@ this.db.prepararSetencia("SELECT * FROM tecnicos WHERE Cedula=?");
 
     @Override
     public Tecnicos[] filtrar(String fil) {
-       this.db.prepararSetencia("select * from usuarios where NombreCompleto like (?)order by  NombreCompleto");
+       this.db.prepararSetencia("select * from tecnicos where Cedula like (?)order by  NombreCompleto");
 
         Object[] param = {fil};
         Object[][] valores;

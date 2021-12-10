@@ -8,6 +8,7 @@ package Vistas;
 import MVC.Controlador.Control;
 import MVC.Controlador.ControlVehiculo;
 import MVC.Modelo.Vehiculos;
+import java.awt.Color;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +32,7 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
     public FrmBuscarVehiculo(java.awt.Frame parent, boolean modal, Control con) {
         super(parent, modal);
         initComponents();
+        this.getContentPane().setBackground(new Color(0, 153, 204));
         this.con = (ControlVehiculo) con;
         this.con.setVista(this);
         this.con.listar();
@@ -57,7 +59,8 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("Buscar por modelo");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Buscar por número de placa");
 
         txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,30 +74,29 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(122, 122, 122)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(150, 150, 150))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         tblVehiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblVehiculo);
@@ -125,31 +127,31 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(266, 266, 266)
+                        .addComponent(btnAceptar)
+                        .addGap(132, 132, 132)
+                        .addComponent(btnCancelar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(btnAceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(159, 159, 159))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(140, 140, 140))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,22 +162,24 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
     }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+con.setVehiculo(null);
 
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-
-        if (this.tblVehiculo.getSelectedRow() != -1) {
-            con.setVehiculo(new Vehiculos(((int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 0)), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 1)), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 2)),
-                     (int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 3),
-                     (LocalDate) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 4),
-                    (int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 5), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 6))));
-            con.setVista((Vista) this.getParent());
-           con.cancelar();
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Vehiculos", JOptionPane.ERROR_MESSAGE);
+        try {
+            if (this.tblVehiculo.getSelectedRow() != -1) {
+                con.setVehiculo(new Vehiculos(((int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 0)), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 1)), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 2)),
+                        (int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 3),
+                        (LocalDate) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 4),
+                        (int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 5), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 6))));
+                
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Vehiculos", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException ex) {
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -245,10 +249,10 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
     public void notificar(Object[] msj) {
         switch (String.valueOf(msj[0])) {
             case "OK" -> {
-                JOptionPane.showMessageDialog(this, msj[1], "PROVINCIAS", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, msj[1], "VEHICULO", JOptionPane.INFORMATION_MESSAGE);
             }
             case "ERROR" -> {
-                JOptionPane.showMessageDialog(this, msj[1], "PROVINCIAS", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msj[1], "VEHICULO", JOptionPane.ERROR_MESSAGE);
             }
         }
 
@@ -257,7 +261,12 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
     @Override
     public void mostrar(Object[] msj) {
         this.tblVehiculo.removeAll();
-        DefaultTableModel contenido = new DefaultTableModel();
+        DefaultTableModel contenido = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false;
+            }
+        };
         contenido.addColumn("Placa");
         contenido.addColumn("Marca");
         contenido.addColumn("Modelo");
@@ -270,7 +279,7 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
             Vehiculos ve = (Vehiculos) obj;
 
             contenido.addRow(new Object[]{ve.getNumeroDePlaca(), ve.getMarca(), ve.getModelo(), ve.getAnio(),
-                 ve.getFechaInscripcion(), ve.getCedulaPropietario(), ve.getNombrePropietario(), LocalDate.now().getYear() - ve.getAnio()});
+                ve.getFechaInscripcion(), ve.getCedulaPropietario(), ve.getNombrePropietario(), LocalDate.now().getYear() - ve.getAnio()});
 
         }
 

@@ -11,6 +11,7 @@ import MVC.Controlador.ControlCitas;
 import MVC.Modelo.Citas;
 import MVC.Modelo.Dao.VehiculosDao;
 import MVC.Modelo.Vehiculos;
+import java.awt.Color;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -34,6 +35,7 @@ public class FrmBuscarCitas extends javax.swing.JDialog implements Vista {
 public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
         super(parent, modal);
         initComponents();
+        this.getContentPane().setBackground(new Color(0, 153, 204));
         this.con=(ControlCitas)con;
         this.con.setVista(this);
         this.con.listar();
@@ -77,8 +79,10 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Buscar por Id de cita");
 
+        txtFiltrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltrarActionPerformed(evt);
@@ -90,31 +94,28 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(132, 132, 132)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblCitas);
@@ -123,38 +124,43 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(180, 180, 180)
                 .addComponent(btnAceptar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
-                .addGap(149, 149, 149))
+                .addGap(192, 192, 192))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(204, 204, 204))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAceptar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(btnCancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btnAceptar)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        
-        
+        try{
         if (this.tblCitas.getSelectedRow()!=-1) {
             VehiculosDao vehi= new VehiculosDao(this.con.bd);
         con.setCita(new Citas ((
@@ -162,16 +168,20 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
         (LocalDate)this.tblCitas.getValueAt(this.tblCitas.getSelectedRow(), 1),
         (LocalTime)this.tblCitas.getValueAt(this.tblCitas.getSelectedRow(), 2),
        vehi.buscar(new Vehiculos( Integer.parseInt(this.tblCitas.getValueAt(this.tblCitas.getSelectedRow(), 3).toString())))));
-        con.setVista((Vista)this.getParent());
-        con.cancelar();
+        
         this.dispose();
         }else{
-        JOptionPane.showMessageDialog(this,"Debe seleccionar un registro" , "Tecnicos", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this,"Debe seleccionar un registro" , "Citas", JOptionPane.ERROR_MESSAGE);
         }
+        
+        } catch (NullPointerException ex) {
+        }
+        
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
+con.setCita(null);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -256,7 +266,10 @@ public FrmBuscarCitas(java.awt.Frame parent, boolean modal, Control con) {
     @Override
     public void mostrar(Object[] msj) {
         this.tblCitas.removeAll();
-        DefaultTableModel contenido=new DefaultTableModel ();
+        DefaultTableModel contenido=new DefaultTableModel (){@Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false;
+            }};
         contenido.addColumn("IdCita");
         contenido.addColumn("Fecha Cita");
         contenido.addColumn("Hora Cita");

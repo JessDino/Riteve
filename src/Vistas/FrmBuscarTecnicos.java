@@ -8,6 +8,7 @@ package Vistas;
 import MVC.Controlador.Control;
 import MVC.Controlador.ControlTecnicos;
 import MVC.Modelo.Tecnicos;
+import java.awt.Color;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +32,7 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
     public FrmBuscarTecnicos(java.awt.Frame parent, boolean modal, Control con) {
         super(parent, modal);
         initComponents();
+        this.getContentPane().setBackground(new Color(0, 153, 204));
         this.con = (ControlTecnicos) con;
         this.con.setVista(this);
         this.con.listar();
@@ -66,8 +68,10 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("Buscar por modelo");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Buscar por numero de cedula");
 
+        txtFiltrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltrarActionPerformed(evt);
@@ -79,31 +83,31 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         tblTecnicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblTecnicos);
@@ -122,14 +126,8 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
@@ -137,13 +135,17 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(159, 159, 159))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -156,7 +158,7 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
+con.setTecnico(null);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -165,22 +167,23 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
     }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        if (this.tblTecnicos.getSelectedRow()!=-1) {
-            con.setTecnico(new Tecnicos(((int) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 0)),
-                String.valueOf(this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 1)),
-                (LocalDate) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 2),
-                (int) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 3),
-                String.valueOf(this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 4)),
-                (int) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 5)
-        )
-        );
-        con.setVista((Vista) this.getParent());
-        con.cancelar();
-        this.dispose();
-        }else{
-        JOptionPane.showMessageDialog(this,"Debe seleccionar un registro" , "Tecnicos", JOptionPane.ERROR_MESSAGE);
+        try {
+            if (this.tblTecnicos.getSelectedRow() != -1) {
+                con.setTecnico(new Tecnicos(((int) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 0)),
+                        String.valueOf(this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 1)),
+                        (LocalDate) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 2),
+                        (int) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 3),
+                        String.valueOf(this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 4)),
+                        (int) this.tblTecnicos.getValueAt(this.tblTecnicos.getSelectedRow(), 5)
+                )
+                );
+                
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Tecnicos", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException ex) {
         }
-        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
@@ -259,14 +262,14 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
 
     @Override
     public void mostrar(Object[] msj) {
-        //                 private int cedula;
-//    private String nombre;
-//    private LocalDate FechaNacimiento;
-//    private int telefono;
-//    private String correo;
-//    private int salario;
+
         this.tblTecnicos.removeAll();
-        DefaultTableModel contenido = new DefaultTableModel();
+        DefaultTableModel contenido = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false;
+            }
+        };
         contenido.addColumn("Cedula");
         contenido.addColumn("Nombre");
         contenido.addColumn("Fecha de nacimiento");
@@ -279,7 +282,7 @@ public class FrmBuscarTecnicos extends javax.swing.JDialog implements Vista {
             Tecnicos tec = (Tecnicos) obj;
             int dedud = deducciones(tec.getSalario());
             contenido.addRow(new Object[]{tec.getCedula(), tec.getNombre(), tec.getFechaNacimiento(),
-                tec.getTelefono(), tec.getCorreo(), tec.getSalario(), dedud,tec.getSalario()-dedud});
+                tec.getTelefono(), tec.getCorreo(), tec.getSalario(), dedud, tec.getSalario() - dedud});
 
         }
 

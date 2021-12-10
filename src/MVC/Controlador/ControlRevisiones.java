@@ -6,6 +6,7 @@
 package MVC.Controlador;
 
 import BaseDatos.MariaDB;
+import MVC.Modelo.Citas;
 
 import MVC.Modelo.Dao.RevisionesDao;
 import MVC.Modelo.Revisiones;
@@ -77,9 +78,12 @@ private Revisiones revision;
 
     @Override
     public void cancelar() {
-         Object []valores =new Object[1];
+        if (this.revision!=null) {
+            Object []valores =new Object[1];
         valores[0]=this.revision;
         vista.mostrar(valores);
+        }
+         
     }
 
    
@@ -118,6 +122,18 @@ private Revisiones revision;
         this.vista.notificar(mensaje);
         }
     
+    }
+    public Citas[] mostrarCitas() {
+        
+        Citas cita[] =  this.dao.citasHoy();
+        if (cita != null) {
+            return this.dao.citasHoy();
+        } else {
+           return null;
+        }
+        
+        
+
     }
     
 }
