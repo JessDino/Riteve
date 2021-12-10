@@ -22,16 +22,18 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
      * Creates new form FrmBuscarVehiculo
      */
     private ControlVehiculo con;
+
     public FrmBuscarVehiculo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-    public FrmBuscarVehiculo(java.awt.Frame parent, boolean modal,Control con) {
+
+    public FrmBuscarVehiculo(java.awt.Frame parent, boolean modal, Control con) {
         super(parent, modal);
         initComponents();
-        this.con=(ControlVehiculo)con;
+        this.con = (ControlVehiculo) con;
         this.con.setVista(this);
-        this.con.buscar();
+        this.con.listar();
     }
 
     /**
@@ -97,6 +99,8 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
         ));
         jScrollPane1.setViewportView(tblVehiculo);
 
+        btnAceptar.setBackground(new java.awt.Color(102, 204, 0));
+        btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +108,8 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(102, 204, 0));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +149,7 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,18 +160,23 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
     }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       
+
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        con.setVehiculo(new Vehiculos (((int)this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 0)),String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 1)),String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 2))
-               ,(int)this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 3)
-               ,(LocalDate)this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 4),
-               (int)this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 5),String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 6))));
-        con.setVista((Vista)this.getParent());
-        con.cancelar();
-        this.dispose();
+
+        if (this.tblVehiculo.getSelectedRow() != -1) {
+            con.setVehiculo(new Vehiculos(((int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 0)), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 1)), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 2)),
+                     (int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 3),
+                     (LocalDate) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 4),
+                    (int) this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 5), String.valueOf(this.tblVehiculo.getValueAt(this.tblVehiculo.getSelectedRow(), 6))));
+            con.setVista((Vista) this.getParent());
+           con.cancelar();
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un registro", "Vehiculos", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
@@ -232,21 +243,21 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
 
     @Override
     public void notificar(Object[] msj) {
-            switch(String.valueOf(msj[0])){
-            case "OK"->{
-            JOptionPane.showMessageDialog(this, msj[1],"PROVINCIAS",JOptionPane.INFORMATION_MESSAGE);
+        switch (String.valueOf(msj[0])) {
+            case "OK" -> {
+                JOptionPane.showMessageDialog(this, msj[1], "PROVINCIAS", JOptionPane.INFORMATION_MESSAGE);
             }
-            case "ERROR"->{
-            JOptionPane.showMessageDialog(this, msj[1],"PROVINCIAS",JOptionPane.ERROR_MESSAGE);
+            case "ERROR" -> {
+                JOptionPane.showMessageDialog(this, msj[1], "PROVINCIAS", JOptionPane.ERROR_MESSAGE);
             }
         }
-        
+
     }
 
     @Override
     public void mostrar(Object[] msj) {
-         this.tblVehiculo.removeAll();
-        DefaultTableModel contenido=new DefaultTableModel ();
+        this.tblVehiculo.removeAll();
+        DefaultTableModel contenido = new DefaultTableModel();
         contenido.addColumn("Placa");
         contenido.addColumn("Marca");
         contenido.addColumn("Modelo");
@@ -254,12 +265,20 @@ public class FrmBuscarVehiculo extends javax.swing.JDialog implements Vista {
         contenido.addColumn("Fecha Inscripcion");
         contenido.addColumn("Cedula Propietario");
         contenido.addColumn("Nombre Propietario");
-        
-        for (Object obj:msj) {
-            Vehiculos ve=(Vehiculos)obj;
-            contenido.addRow(new Object[]{ve.getNumeroDePlaca(),ve.getMarca(),ve.getModelo(),ve.getAnio()
-            ,ve.getFechaInscripcion(),ve.getCedulaPropietario(),ve.getNombrePropietario()});
+        contenido.addColumn("Antiguedad Vehiculo");
+        for (Object obj : msj) {
+            Vehiculos ve = (Vehiculos) obj;
+
+            contenido.addRow(new Object[]{ve.getNumeroDePlaca(), ve.getMarca(), ve.getModelo(), ve.getAnio(),
+                 ve.getFechaInscripcion(), ve.getCedulaPropietario(), ve.getNombrePropietario(), LocalDate.now().getYear() - ve.getAnio()});
+
         }
+
         this.tblVehiculo.setModel(contenido);
+    }
+
+    @Override
+    public boolean verificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

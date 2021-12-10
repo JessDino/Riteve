@@ -24,10 +24,11 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
      * Creates new form FrmRevisioness
      */
     ControlRevisiones control;
+
     public FrmRevisioness() {
         initComponents();
-        this.getContentPane().setBackground(new Color(0,153,204));
-        this.control=new ControlRevisiones(this);
+        this.getContentPane().setBackground(new Color(0, 153, 204));
+        this.control = new ControlRevisiones(this);
     }
 
     /**
@@ -55,6 +56,8 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
         jLabel8 = new javax.swing.JLabel();
         txtVehiculo = new javax.swing.JTextField();
         txtObservacion = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtIdRevision = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnExportar = new javax.swing.JButton();
         btnVisualizarListaCitas = new javax.swing.JButton();
@@ -71,32 +74,32 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Revisiones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(102, 204, 0))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Información de la revisión ");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
+        jLabel2.setText("Fecha de la revisión:");
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel2.setText("Fecha de la revisión:  ");
 
+        jLabel3.setText("Hora de la revisión:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel3.setText("Hora de la revisión:");
 
+        jLabel4.setText("Técnico: ");
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel4.setText("Técnico: ");
 
+        jLabel5.setText("Tipo de revisión:");
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel5.setText("Tipo de revisión:");
 
+        jLabel6.setText("Observaciones:");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel6.setText("Observaciones:");
 
+        jLabel7.setText("Estado:");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel7.setText("Estado:");
 
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobado", "Reprobado" }));
         cmbEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -105,9 +108,11 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
             }
         });
 
+        cmbTipoRevision.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inspección", "Reinspección" }));
+
+        jLabel8.setText("Vehiculo: ");
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel8.setText("Vehiculo: ");
 
         txtVehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtVehiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -118,52 +123,73 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
 
         txtObservacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel9.setText("IdRecision:");
+
+        txtIdRevision.setEditable(false);
+        txtIdRevision.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtIdRevision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdRevisionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jLabel6)
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(tpHora, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(30, 30, 30))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tpHora, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(dpFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(62, 62, 62)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dpFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1))
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbTipoRevision, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(82, Short.MAX_VALUE))
+                                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbTipoRevision, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtIdRevision, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(40, 40, 40)))
+                .addGap(316, 316, 316))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txtIdRevision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,20 +216,25 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(txtObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(86, 86, 86))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        btnExportar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         btnExportar.setText("Exportar en XLM");
+        btnExportar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportarActionPerformed(evt);
+            }
+        });
 
-        btnVisualizarListaCitas.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         btnVisualizarListaCitas.setText("Visualizar Lista de Citas");
+        btnVisualizarListaCitas.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -228,51 +259,51 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
-        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png"))); // NOI18N
         btnAgregar.setText("Agregar");
+        btnAgregar.setBackground(new java.awt.Color(102, 204, 0));
         btnAgregar.setEnabled(false);
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setBackground(new java.awt.Color(102, 204, 0));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.setBackground(new java.awt.Color(102, 204, 0));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        btnBuscar.setBackground(new java.awt.Color(102, 204, 0));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
+        btnBuscar.setBackground(new java.awt.Color(102, 204, 0));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
-        btnActualizar.setBackground(new java.awt.Color(102, 204, 0));
-        btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/actualizar.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
+        btnActualizar.setBackground(new java.awt.Color(102, 204, 0));
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
 
-        btnNuevo.setBackground(new java.awt.Color(102, 204, 0));
-        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
+        btnNuevo.setBackground(new java.awt.Color(102, 204, 0));
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -294,7 +325,7 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
                 .addComponent(btnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,50 +347,46 @@ public class FrmRevisioness extends javax.swing.JFrame implements Vista {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 267, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(144, 144, 144)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbEstadoActionPerformed
-
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         this.cambiarEstados();
-TecnicosDao tec=new TecnicosDao(control.bd);
-VehiculosDao vehi=new VehiculosDao(control.bd);
+        TecnicosDao tec = new TecnicosDao(control.bd);
+        VehiculosDao vehi = new VehiculosDao(control.bd);
+        Tecnicos tecni = new Tecnicos(Integer.parseInt(txtTecnico.getText()));
+        System.out.println(tecni.getCedula());
         try {
             if (verificar()) {
 
-                control.guardar(new Revisiones(dpFecha.getDate(), tpHora.getTime(), tec.buscar(new Tecnicos (Integer.parseInt(txtTecnico.getText()))), cmbTipoRevision.getSelectedItem().toString(),txtObservacion.getText()
-                ,cmbEstado.getSelectedItem().toString(),vehi.buscar(new Vehiculos (Integer.parseInt(txtVehiculo.getText())))));
+                control.guardar(new Revisiones(dpFecha.getDate(), tpHora.getTime(), tec.buscar(tecni), cmbTipoRevision.getSelectedItem().toString(), txtObservacion.getText(),
+                        cmbEstado.getSelectedItem().toString(), vehi.buscar(new Vehiculos(Integer.parseInt(txtVehiculo.getText()))), 1));
             } else {
                 JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Revisiones", JOptionPane.ERROR_MESSAGE);
 
@@ -371,26 +398,26 @@ VehiculosDao vehi=new VehiculosDao(control.bd);
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (verificar()) {
-            TecnicosDao tec=new TecnicosDao(control.bd);
-VehiculosDao vehi=new VehiculosDao(control.bd);
-            control.eliminar(new Revisiones(dpFecha.getDate(), tpHora.getTime(), tec.buscar(new Tecnicos (Integer.parseInt(txtTecnico.getText()))), cmbTipoRevision.getSelectedItem().toString(),txtObservacion.getText()
-                ,cmbEstado.getSelectedItem().toString(),vehi.buscar(new Vehiculos (Integer.parseInt(txtVehiculo.getText())))));
+            TecnicosDao tec = new TecnicosDao(control.bd);
+            VehiculosDao vehi = new VehiculosDao(control.bd);
+            control.eliminar(new Revisiones(dpFecha.getDate(), tpHora.getTime(), tec.buscar(new Tecnicos(Integer.parseInt(txtTecnico.getText()))), cmbTipoRevision.getSelectedItem().toString(), txtObservacion.getText(),
+                    cmbEstado.getSelectedItem().toString(), vehi.buscar(new Vehiculos(Integer.parseInt(txtVehiculo.getText()))), Integer.parseInt(txtIdRevision.getText())));
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        FrmBuscarTecnicos ft = new FrmBuscarTecnicos(this, true, control);
-        ft.setVisible(true);
+        FrmBuscarRevisiones fr = new FrmBuscarRevisiones(this, true, control);
+        fr.setVisible(true);
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         try {
-  TecnicosDao tec=new TecnicosDao(control.bd);
-VehiculosDao vehi=new VehiculosDao(control.bd);
+            TecnicosDao tec = new TecnicosDao(control.bd);
+            VehiculosDao vehi = new VehiculosDao(control.bd);
             if (verificar()) {
-                control.modificar(new Revisiones(dpFecha.getDate(), tpHora.getTime(), tec.buscar(new Tecnicos (Integer.parseInt(txtTecnico.getText()))), cmbTipoRevision.getSelectedItem().toString(),txtObservacion.getText()
-                ,cmbEstado.getSelectedItem().toString(),vehi.buscar(new Vehiculos (Integer.parseInt(txtVehiculo.getText())))));
+                control.modificar(new Revisiones(dpFecha.getDate(), tpHora.getTime(), tec.buscar(new Tecnicos(Integer.parseInt(txtTecnico.getText()))), cmbTipoRevision.getSelectedItem().toString(), txtObservacion.getText(),
+                        cmbEstado.getSelectedItem().toString(), vehi.buscar(new Vehiculos(Integer.parseInt(txtVehiculo.getText()))), Integer.parseInt(txtIdRevision.getText())));
             }
 
         } catch (NumberFormatException ex) {
@@ -407,6 +434,23 @@ VehiculosDao vehi=new VehiculosDao(control.bd);
     private void txtVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVehiculoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVehiculoActionPerformed
+
+    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEstadoActionPerformed
+
+    private void txtIdRevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdRevisionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdRevisionActionPerformed
+
+    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
+        if (verificar()) {
+            TecnicosDao tec = new TecnicosDao(control.bd);
+            VehiculosDao vehi = new VehiculosDao(control.bd);
+            control.expor(new Revisiones(dpFecha.getDate(), tpHora.getTime(), tec.buscar(new Tecnicos(Integer.parseInt(txtTecnico.getText()))), cmbTipoRevision.getSelectedItem().toString(), txtObservacion.getText(),
+                        cmbEstado.getSelectedItem().toString(), vehi.buscar(new Vehiculos(Integer.parseInt(txtVehiculo.getText()))), Integer.parseInt(txtIdRevision.getText())));
+        }
+    }//GEN-LAST:event_btnExportarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,10 +506,12 @@ VehiculosDao vehi=new VehiculosDao(control.bd);
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private com.github.lgooddatepicker.components.TimePicker tpHora;
+    private javax.swing.JTextField txtIdRevision;
     private javax.swing.JTextField txtObservacion;
     private javax.swing.JTextField txtTecnico;
     private javax.swing.JTextField txtVehiculo;
@@ -473,7 +519,7 @@ VehiculosDao vehi=new VehiculosDao(control.bd);
 
     @Override
     public void cambiarEstados() {
-                this.btnNuevo.setEnabled(!this.btnNuevo.isEnabled());
+        this.btnNuevo.setEnabled(!this.btnNuevo.isEnabled());
         this.btnAgregar.setEnabled(!this.btnAgregar.isEnabled());
         this.btnActualizar.setEnabled(!this.btnActualizar.isEnabled());
         this.btnEliminar.setEnabled(!this.btnEliminar.isEnabled());
@@ -482,31 +528,56 @@ VehiculosDao vehi=new VehiculosDao(control.bd);
 
     @Override
     public void limpiar() {
-       tpHora;
-    private javax.swing.JTextField txtObservacion;
-    private javax.swing.JTextField txtTecnico;
-    private javax.swing.JTextField txtVehiculo;
+        tpHora.setText("");
+        txtObservacion.setText("");
+        txtTecnico.setText("");
+        txtVehiculo.setText("");
+        dpFecha.setText("");
+        txtIdRevision.setText("");
+        
     }
 
     @Override
     public void notificar(Object[] msj) {
-       switch (String.valueOf(msj[0])) {
+        switch (String.valueOf(msj[0])) {
             case "OK" -> {
                 JOptionPane.showMessageDialog(this, msj[1], "Revisiones", JOptionPane.INFORMATION_MESSAGE);
             }
             case "ERROR" -> {
                 JOptionPane.showMessageDialog(this, msj[1], "Revisiones", JOptionPane.ERROR_MESSAGE);
             }
-        }  
+        }
     }
 
     @Override
     public void mostrar(Object[] msj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Revisiones revi = (Revisiones) msj[0];
+        txtIdRevision.setText(String.valueOf(revi.getIdRevision()));
+        tpHora.setTime(revi.getHora());
+        txtObservacion.setText(revi.getObservacion());
+        txtTecnico.setText(String.valueOf(revi.getTecnico().getCedula()));
+        txtVehiculo.setText(String.valueOf(revi.getVehiculo().getNumeroDePlaca()));
+        dpFecha.setDate(revi.getFecha());
+        if (revi.getEstado().equals("Aprobado")) {
+            cmbEstado.setSelectedIndex(0);
+        } else {
+            cmbEstado.setSelectedIndex(1);
+        }
+        if (revi.getTipoRevision().equals("Inspección")) {
+            cmbTipoRevision.setSelectedIndex(0);
+        } else {
+            cmbTipoRevision.setSelectedIndex(1);
+        }
     }
 
     @Override
     public boolean verificar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return !tpHora.getText().equals("")
+                && !txtObservacion.getText().equals("")
+                && !txtTecnico.getText().equals("")
+                && !txtVehiculo.getText().equals("")
+                && !dpFecha.getText().equals("");
     }
+    
+   
 }

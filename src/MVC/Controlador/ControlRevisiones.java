@@ -10,6 +10,7 @@ import BaseDatos.MariaDB;
 import MVC.Modelo.Dao.RevisionesDao;
 import MVC.Modelo.Revisiones;
 import Vistas.Vista;
+import XML.CrearXML;
 
 /**
  *
@@ -18,14 +19,22 @@ import Vistas.Vista;
 public class ControlRevisiones implements Control<Revisiones>{
 private Revisiones revision;
     private Vista vista;
-    private MariaDB bd;
+    public MariaDB bd;
     private RevisionesDao dao;
 
-    public ControlRevisiones(Revisiones revision, Vista vista, MariaDB bd, RevisionesDao dao) {
+    public ControlRevisiones( Vista vista) {
           this.vista = vista;
-        this.bd=new MariaDB("127.0.0.1", "padron", "root","");
+        this.bd=new MariaDB("127.0.0.1", "rtv", "root","");
         this.revision=new Revisiones();
         this.dao=new RevisionesDao(this.bd);
+    }
+
+    public void setRevision(Revisiones revision) {
+        this.revision = revision;
+    }
+
+    public void setVista(Vista vista) {
+        this.vista = vista;
     }
     
     
@@ -73,10 +82,7 @@ private Revisiones revision;
         vista.mostrar(valores);
     }
 
-    @Override
-    public void buscar(Revisiones clase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public void filtrar(String des) {
@@ -88,6 +94,30 @@ private Revisiones revision;
         this.vista.notificar(mensaje);
         
         }
+    }
+
+    @Override
+    public void listar() {
+         Revisiones revi[]=this.dao.listar();
+        if (revi !=null) {
+            this.vista.mostrar(revi);
+        }else{
+        Object mensaje[]={"ERROR","NO HAY RESULTADO"};
+        this.vista.notificar(mensaje);
+        
+        }
+    }
+    public void expor(Revisiones re){
+     Revisiones revi[]=this.dao.exportar(re);
+     CrearXML xml= new CrearXML(revi);
+        if (xml.crear()) {
+            Object mensaje[]={"OK","SE HAN EXPORTADO LOS REGISTRO A C:\\Users\\usuario\\Documents\\"+re.getVehiculo().getNumeroDePlaca() + ".xml\""};
+        this.vista.notificar(mensaje);
+        }else{
+        Object mensaje[]={"ERROR","NO SE HAN EXPORTADO LOS REGISTROS"};
+        this.vista.notificar(mensaje);
+        }
+    
     }
     
 }
