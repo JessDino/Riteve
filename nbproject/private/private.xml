@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Dao/TecnicosDao.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmOpciones.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/ControlTecnicos.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/BaseDatos/BaseDatos.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/Vista.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/Control.java</file>
@@ -14,6 +15,7 @@
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmVehiculos.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Dao/VehiculosDao.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmRevisiones.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Usuarios.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmConfiguracion.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/BaseDatos/MariaDB.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/BaseDatos/ConfigurarBase.java</file>
@@ -21,11 +23,15 @@
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Tecnicos.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Dao/CitasDao.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Dao/RevisionesDao.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Citas.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmUsuarios.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmInicio.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/ControlUsuarios.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmCitas.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Dao/UsuariosDao.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/ControlCitas.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Controlador/ControlRevisiones.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmBuscarCitas.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/Vistas/FrmBuscarUsuarios.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/RTV/src/MVC/Modelo/Vehiculos.java</file>
         </group>

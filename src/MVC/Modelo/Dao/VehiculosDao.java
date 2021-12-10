@@ -63,7 +63,14 @@ public class VehiculosDao implements Dao<Vehiculos> {
         Object[] param = {vehiculo.getNumeroDePlaca()};
         Object[][] valores = this.db.seleccionar(param);
         if (valores.length > 0 && valores != null) {
-            return new Vehiculos((int) valores[0][0], String.valueOf(valores[0][1]), String.valueOf(valores[0][2]), (int) valores[0][3], (LocalDate) valores[0][4],
+            
+            String fe[] = valores[0][4].toString().split("-");
+                int y = Integer.parseInt(fe[0]);
+                int m = Integer.parseInt(fe[1]);
+                int d = Integer.parseInt(fe[2]);
+                 String anio[] = valores[0][3].toString().split("-");
+                int an = Integer.parseInt(anio[0]);
+            return new Vehiculos((int) valores[0][0], String.valueOf(valores[0][1]), String.valueOf(valores[0][2]), an,LocalDate.of(y, m, d),
                      (int) valores[0][5], String.valueOf(valores[0][6]));
         }
         return null;

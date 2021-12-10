@@ -7,6 +7,7 @@ package BaseDatos;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -104,10 +105,10 @@ public class BaseDatos {
             if (parametro instanceof String) {
                 this.setencia.setString(i, (String) parametro);
             }
-            if (parametro instanceof Date ) {
-                this.setencia.setDate(i, (Date) parametro);
-            }if (parametro instanceof LocalDate) {
+            if (parametro instanceof LocalDate) {
                 this.setencia.setDate(i,Date.valueOf(parametro.toString()) );
+            }if (parametro instanceof LocalTime) {
+                this.setencia.setTime(i,Time.valueOf(parametro.toString()+":00"));
             }
             i++;
         }

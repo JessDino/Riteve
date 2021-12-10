@@ -1,6 +1,5 @@
-
-
 package Vistas;
+
 import MVC.Controlador.ControlUsuarios;
 import MVC.Modelo.Usuarios;
 
@@ -11,22 +10,21 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author usuario
  */
-public class FrmUsuarios extends javax.swing.JFrame implements Vista{
+public class FrmUsuarios extends javax.swing.JFrame implements Vista {
 
     /**
      * Creates new form FrmUsuarios
      */
     ControlUsuarios control;
+
     public FrmUsuarios() {
         initComponents();
-        
-        control =new ControlUsuarios(this);
+
+        control = new ControlUsuarios(this);
     }
 
     /**
@@ -294,49 +292,53 @@ public class FrmUsuarios extends javax.swing.JFrame implements Vista{
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-txtContrasena.setEnabled(true);
+        txtContrasena.setEnabled(true);
         this.cambiarEstados();
-       this.limpiar();
+        this.limpiar();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-         this.cambiarEstados();
+        this.cambiarEstados();
         txtContrasena.setEnabled(true);
-        if (verificar()) {
-//this.setCedula(cedula);
-//        this.setNombre(nombre);
-//        this.setFechaNacimiento(FechaNacimiento);
-//        this.setTelefono(telefono);
-//        this.setCorreo(correo);
-//        this.setNombreUsuario(nombreUsuario);
-//        this.setContrasena(contrasena);
-//        this.setTipoUsuario(tipoUsuario);
-            control.guardar(new Usuarios(Integer.parseInt(txtCedulaU.getText()),txtNombre.getText()
-            ,dpFecha.getDate(),Integer.parseInt(txtTelefono.getText()),txtCorreo.getText(),txtNombreUsuario.getText(),txtContrasena.getText(),cmbTipo.getSelectedItem().toString()));
-        } else {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Usuario", JOptionPane.ERROR_MESSAGE);
-        // this.cambiarEstados();
-        }
+        try {
+            if (verificar()) {
+
+                control.guardar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
+                         dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), txtContrasena.getText(), cmbTipo.getSelectedItem().toString()));
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Usuario", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Usuario", JOptionPane.ERROR_MESSAGE);
+        };
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        if (verificar()) {
-           control.modificar(new Usuarios(Integer.parseInt(txtCedulaU.getText()),txtNombre.getText()
-            ,dpFecha.getDate(),Integer.parseInt(txtTelefono.getText()),txtCorreo.getText(),txtNombreUsuario.getText(),"++++++++",cmbTipo.getSelectedItem().toString()));  
-        }
-           
-        
+
+        try {
+            if (verificar()) {
+                control.modificar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
+                         dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), "++++++++", cmbTipo.getSelectedItem().toString()));
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Usuario", JOptionPane.ERROR_MESSAGE);
+        };
+
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-      if (verificar()) {
-            control.eliminar(new Usuarios(Integer.parseInt(txtCedulaU.getText()),txtNombre.getText()
-            ,dpFecha.getDate(),Integer.parseInt(txtTelefono.getText()),txtCorreo.getText(),txtNombreUsuario.getText(),txtContrasena.getText(),cmbTipo.getSelectedItem().toString()));
+        if (verificar()) {
+            control.eliminar(new Usuarios(Integer.parseInt(txtCedulaU.getText()), txtNombre.getText(),
+                     dpFecha.getDate(), Integer.parseInt(txtTelefono.getText()), txtCorreo.getText(), txtNombreUsuario.getText(), txtContrasena.getText(), cmbTipo.getSelectedItem().toString()));
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNombreUsuarioActionPerformed
 
     /**
@@ -445,15 +447,15 @@ txtContrasena.setEnabled(true);
         dpFecha.setDate(usuario.getFechaNacimiento());
         if (usuario.getTipoUsuario().equals("Secretaria")) {
             cmbTipo.setSelectedIndex(0);
-        }else{
-        cmbTipo.setSelectedIndex(1);
+        } else {
+            cmbTipo.setSelectedIndex(1);
         }
     }
 
     @Override
     public boolean verificar() {
         return !txtCedulaU.getText().equals("") && !txtContrasena.getText().equals("") && !txtCorreo.getText().equals("")
-                && !txtNombre.getText() .equals("") && !txtNombreUsuario.getText().equals("") && !txtTelefono.getText().equals("")
+                && !txtNombre.getText().equals("") && !txtNombreUsuario.getText().equals("") && !txtTelefono.getText().equals("")
                 && !dpFecha.getText().equals("");
     }
 }

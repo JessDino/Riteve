@@ -279,21 +279,32 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         this.cambiarEstados();
-        if (verificar()) {
-            txtNumPlaca.setEnabled(true);
-            control.guardar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
-        } else {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Vehiculo", JOptionPane.ERROR_MESSAGE);
-        // this.cambiarEstados();
-        }
 
-        
+        try {
+            if (verificar()) {
+                txtNumPlaca.setEnabled(true);
+                control.guardar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Vehiculo", JOptionPane.ERROR_MESSAGE);
+
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Vehiculos", JOptionPane.ERROR_MESSAGE);
+        };
+
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        if (verificar()) {
-            control.modificar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
-        }
+        try {
+
+            if (verificar()) {
+                control.modificar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
+            }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Datos númericos invalidos", "Vehiculos", JOptionPane.ERROR_MESSAGE);
+        };
 
     }//GEN-LAST:event_btnActualizarActionPerformed
 
@@ -311,7 +322,7 @@ public class FrmVehiculos extends javax.swing.JFrame implements Vista {
     @Override
     public boolean verificar() {
         return txtNumPlaca.getText() != null && txtMarcaV.getText() != null && txtMarcaV.getText() != null && txtModeloV.getText() != null && txtAnio.getText() != null && dpFecha.getDate() != null && txtCedula.getText() != null && txtNombrePropiV.getText() != null;
-        
+
     }
 
     /**
