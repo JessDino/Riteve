@@ -8,8 +8,6 @@ package MVC.Controlador;
 import BaseDatos.MariaDB;
 import MVC.Modelo.Citas;
 import MVC.Modelo.Dao.CitasDao;
-import MVC.Modelo.Dao.VehiculosDao;
-import MVC.Modelo.Vehiculos;
 import Vistas.Vista;
 
 /**
@@ -20,22 +18,14 @@ public class ControlCitas implements Control<Citas> {
 
     private Citas cita;
     private Vista vista;
-    public MariaDB bd;
+    private MariaDB bd;
     private CitasDao dao;
 
-    public ControlCitas(Vista vista) {
+    public ControlCitas(Citas cita, Vista vista, MariaDB bd, CitasDao dao) {
         this.vista = vista;
-        this.bd = new MariaDB("127.0.0.1", "rtv", "root", "");
+        this.bd = new MariaDB("127.0.0.1", "padron", "root", "");
         this.cita = new Citas();
         this.dao = new CitasDao(this.bd);
-    }
-
-    public void setVista(Vista vista) {
-        this.vista = vista;
-    }
-
-    public void setCita(Citas cita) {
-        this.cita = cita;
     }
 
     @Override
@@ -82,6 +72,11 @@ public class ControlCitas implements Control<Citas> {
     }
 
     @Override
+    public void buscar(Citas clase) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public void filtrar(String des) {
         Citas cita[] = this.dao.filtrar(des);
         if (cita != null) {
@@ -93,17 +88,4 @@ public class ControlCitas implements Control<Citas> {
         }
     }
 
-    @Override
-    public void listar() {
-        Citas cita[] = this.dao.listar();
-        if (cita != null) {
-            this.vista.mostrar(cita);
-        } else {
-            Object mensaje[] = {"ERROR", "NO HAY RESULTADO"};
-            this.vista.notificar(mensaje);
-
-        }
-    }
-
-   
 }

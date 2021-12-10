@@ -8,8 +8,6 @@ package MVC.Modelo.Dao;
 import BaseDatos.BaseDatos;
 import MVC.Modelo.Citas;
 import MVC.Modelo.Vehiculos;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Date;
 
 /**
@@ -30,7 +28,7 @@ public class CitasDao implements Dao<Citas>{
     @Override
     public boolean insertar(Citas ob) {
         if (ob.requeridos() && this.validarPK(ob) && this.validarFK(ob)) {
-            this.db.prepararSetencia("Insert into citas (Fecha,Hora,NúmeroDePlaca)values(?,?,?)");
+            this.db.prepararSetencia("Insert into citas values(?,?,?)");
 
             Object[] param = {ob.getFecha(), ob.getHora(),ob.getVehiculo().getNumeroDePlaca()};
             return this.db.ejecutar(param);
@@ -41,7 +39,7 @@ public class CitasDao implements Dao<Citas>{
     @Override
     public boolean modificar(Citas ob) {
          if (ob.requeridos() && this.validarUnicos(ob)&& this.validarFK(ob)) {
-            this.db.prepararSetencia("Update citas set Fecha=?,Hora=? where IdCita=?");
+            this.db.prepararSetencia("Update into citas set Fecha=?,Hora=? where IdCita=?");
 
             Object[] param = {ob.getFecha(), ob.getHora(),ob.getIdCita()};
             return this.db.ejecutar(param);
@@ -53,7 +51,7 @@ public class CitasDao implements Dao<Citas>{
     public boolean eliminar(Citas ob) {
         if (ob.requeridos()) {
             
-            this.db.prepararSetencia("Delete from citas where IdCita =?");
+            this.db.prepararSetencia("Delete citas where IdCita =?");
 
             Object[] param = {ob.getIdCita()};
             return this.db.ejecutar(param);
@@ -69,9 +67,8 @@ public class CitasDao implements Dao<Citas>{
         Object[][] valores = this.db.seleccionar(param);
 
         if (valores.length > 0 && valores != null) {
-            
             VehiculosDao vehi=new VehiculosDao(this.db);
-            return new Citas((int) valores[0][0], (LocalDate)valores[0][1],(LocalTime)valores[0][2],vehi.buscar(new Vehiculos( (int)valores[0][0])));
+            return new Citas((int) valores[0][0], (Date)valores[0][1],String.valueOf(valores[0][2]),vehi.buscar(new Vehiculos( (int)valores[0][0])));
         }
         return null;
     }
@@ -87,15 +84,7 @@ public class CitasDao implements Dao<Citas>{
             VehiculosDao vehi=new VehiculosDao(this.db);
             Citas[] ci = new Citas[valores.length];
             for (int f = 0; f <= valores.length - 1; f++) {
-                 String fe[] = valores[f][1].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-                String time[]=valores[f][2].toString().split(":");
-                int h =Integer.parseInt(time[0]);
-                int mi =Integer.parseInt(time[1]);
-                int s =Integer.parseInt(time[2]);
-                ci[f] = new  Citas((int) valores[f][0], LocalDate.of(y, m, d),LocalTime.of(h, mi, s),vehi.buscar(new Vehiculos( (int)valores[f][3])));
+                ci[f] = new  Citas((int) valores[0][0], (Date)valores[0][1],String.valueOf(valores[0][2]),vehi.buscar(new Vehiculos( (int)valores[0][0])));
             }
             return ci;
         }
@@ -104,7 +93,7 @@ public class CitasDao implements Dao<Citas>{
 
     @Override
     public Citas[] filtrar(String fil) {
-        this.db.prepararSetencia("select * from Citas where IdCita =?");
+        this.db.prepararSetencia("select * from Citas where NúmeroDePlaca like (?)order by  NumeroDePlaca");
        
         Object[] param = {fil};
         Object[][] valores;
@@ -113,15 +102,7 @@ public class CitasDao implements Dao<Citas>{
              VehiculosDao vehi=new VehiculosDao(this.db);
             Citas []ci=new Citas [valores.length];
             for (int f = 0; f <= valores.length-1; f++) {
-                String fe[] = valores[f][1].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-                String time[]=valores[f][2].toString().split(":");
-                int h =Integer.parseInt(time[0]);
-                int mi =Integer.parseInt(time[1]);
-                int s =Integer.parseInt(time[2]);
-                ci [f]=  new  Citas((int) valores[f][0], LocalDate.of(y, m, d),LocalTime.of(h, mi, s),vehi.buscar(new Vehiculos( (int)valores[f][0])));
+                ci [f]=  new  Citas((int) valores[0][0], (Date)valores[0][1],String.valueOf(valores[0][2]),vehi.buscar(new Vehiculos( (int)valores[0][0])));
             }
             return ci;
         }

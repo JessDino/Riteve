@@ -8,7 +8,6 @@ package MVC.Controlador;
 import BaseDatos.MariaDB;
 import MVC.Modelo.Dao.TecnicosDao;
 import MVC.Modelo.Tecnicos;
-import Vistas.FrmTecnicos;
 import Vistas.Vista;
 
 /**
@@ -21,23 +20,15 @@ private Tecnicos tecnico;
     private MariaDB bd;
     private TecnicosDao dao;
 
-    public ControlTecnicos( Vista vista) {
+    public ControlTecnicos(Tecnicos tecnico, Vista vista, MariaDB bd, TecnicosDao dao) {
           this.vista = vista;
-        this.bd=new MariaDB("127.0.0.1", "rtv", "root","");
+        this.bd=new MariaDB("127.0.0.1", "padron", "root","");
         this.tecnico=new Tecnicos();
         this.dao=new TecnicosDao(this.bd);
     }
-
-    public void setTecnico(Tecnicos tecnico) {
-        this.tecnico = tecnico;
-    }
-
-    public void setVista(Vista vista) {
-        this.vista = vista;
-    }
-
-   
-
+    
+    
+    
     @Override
     public void guardar(Tecnicos clase) {
          
@@ -82,23 +73,14 @@ private Tecnicos tecnico;
         vista.mostrar(valores);
     }
 
-   
+    @Override
+    public void buscar(Tecnicos clase) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public void filtrar(String des) {
          Tecnicos tec[]=this.dao.filtrar(des);
-        if (tec !=null) {
-            this.vista.mostrar(tec);
-        }else{
-        Object mensaje[]={"ERROR","NO HAY RESULTADO"};
-        this.vista.notificar(mensaje);
-        
-        }
-    }
-
-    @Override
-    public void listar() {
-         Tecnicos tec[]=this.dao.listar();
         if (tec !=null) {
             this.vista.mostrar(tec);
         }else{

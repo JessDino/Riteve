@@ -7,7 +7,6 @@ package MVC.Modelo.Dao;
 
 import BaseDatos.BaseDatos;
 import MVC.Modelo.Tecnicos;
-import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -61,11 +60,7 @@ this.db.prepararSetencia("select * from tecnicos where Cedula=?");
         Object[] param = {ob.getCedula()};
         Object[][] valores = this.db.seleccionar(param);
         if (valores.length > 0 && valores != null) {
-             String fe[] = valores[0][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-            return new Tecnicos((int) valores[0][0], String.valueOf(valores[0][1]),LocalDate.of(y, m, d), (int) valores[0][3], String.valueOf(valores[0][4]),
+            return new Tecnicos((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
                    (int)valores[0][5]);
         }
         return null;        
@@ -81,12 +76,8 @@ this.db.prepararSetencia("select * from tecnicos where Cedula=?");
         if (valores.length > 0 && valores != null) {
             Tecnicos[] tec = new Tecnicos[valores.length];
             for (int f = 0; f <= valores.length - 1; f++) {
-               String fe[] = valores[f][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-                tec[f] = new Tecnicos((int) valores[f][0], String.valueOf(valores[f][1]),LocalDate.of(y, m, d), (int) valores[f][3], String.valueOf(valores[f][4]),
-                   (int)valores[f][5]);
+                tec[f] = new Tecnicos((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
+                   (int)valores[0][5]);
             }
             return tec;
         }
@@ -103,12 +94,8 @@ this.db.prepararSetencia("select * from tecnicos where Cedula=?");
         if (valores.length > 0 && valores != null) {
             Tecnicos[] tec = new Tecnicos[valores.length];
             for (int f = 0; f <= valores.length - 1; f++) {
-               String fe[] = valores[f][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-                tec[f] = new Tecnicos((int) valores[f][0], String.valueOf(valores[f][1]),LocalDate.of(y, m, d), (int) valores[f][3], String.valueOf(valores[f][4]),
-                   (int)valores[f][5]);
+                tec[f] = new Tecnicos((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
+                   (int)valores[0][5]);
             }
             return tec;
         }
@@ -132,11 +119,7 @@ private Tecnicos buscarCorreo(Tecnicos ob) {
         Object[][] valores;
         valores = this.db.seleccionar(param);
         if (valores.length > 0 && valores != null) {
-            String fe[] = valores[0][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-               return new Tecnicos((int) valores[0][0], String.valueOf(valores[0][1]),LocalDate.of(y, m, d), (int) valores[0][3], String.valueOf(valores[0][4]),
+            return new Tecnicos((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
                    (int)valores[0][5]);
         }
         return null;

@@ -7,7 +7,6 @@ package MVC.Modelo.Dao;
 
 import BaseDatos.BaseDatos;
 import MVC.Modelo.Usuarios;
-import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -37,8 +36,8 @@ public class UsuariosDao implements Dao<Usuarios> {
 
     @Override
     public boolean modificar(Usuarios ob) {
-        if (ob.requeridos() ) {
-            this.db.prepararSetencia("Update  usuarios set NombreCompleto=?,FechaNacimiento=?,Telefono=?,CorreoElectronico=?,NombreUsuario=?,TipoUsuario=? where Cedula=?");
+        if (ob.requeridos() && this.validarUnicos(ob)) {
+            this.db.prepararSetencia("Update into usuarios set NombreCompleto=?,FechaNacimiento=?,Telefono=?,CorreoElectronico=?,NombreUsuario=?,TipoUsuario=? where Cedula=?");
 
             Object[] param = {ob.getNombre(), ob.getFechaNacimiento(), ob.getTelefono(), ob.getCorreo(), ob.getNombreUsuario(),
                 ob.getTipoUsuario(), ob.getCedula()};
@@ -50,7 +49,7 @@ public class UsuariosDao implements Dao<Usuarios> {
     @Override
     public boolean eliminar(Usuarios ob) {
         if (ob.requeridos()) {
-            this.db.prepararSetencia("Delete from usuarios where Cedula =?");
+            this.db.prepararSetencia("Delete usuarios where Cedula =?");
 
             Object[] param = {ob.getCedula()};
             return this.db.ejecutar(param);
@@ -60,14 +59,13 @@ public class UsuariosDao implements Dao<Usuarios> {
 
     @Override
     public Usuarios buscar(Usuarios ob) {
-//        this.db.prepararSetencia("select * from usuarios where Cedula=?");
-//        Object[] param = {ob.getCedula()};
-//        Object[][] valores = this.db.seleccionar(param);
-//        if (valores.length > 0 && valores != null) {
-//            
-//            return new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
-//                    String.valueOf(valores[0][5]), String.valueOf(valores[0][6]), String.valueOf(valores[0][7]));
-//        }
+        this.db.prepararSetencia("select * from usuarios where Cedula=?");
+        Object[] param = {ob.getCedula()};
+        Object[][] valores = this.db.seleccionar(param);
+        if (valores.length > 0 && valores != null) {
+            return new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
+                    String.valueOf(valores[0][5]), String.valueOf(valores[0][6]), String.valueOf(valores[0][7]));
+        }
         return null;
 
     }
@@ -82,12 +80,8 @@ public class UsuariosDao implements Dao<Usuarios> {
         if (valores.length > 0 && valores != null) {
             Usuarios[] usua = new Usuarios[valores.length];
             for (int f = 0; f <= valores.length - 1; f++) {
-                String fe[] = valores[f][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-                usua[f] = new Usuarios((int) valores[f][0], String.valueOf(valores[f][1]),LocalDate.of(y, m, d), (int) valores[f][3], String.valueOf(valores[f][4]),
-                        String.valueOf(valores[f][5]), String.valueOf(valores[f][6]), String.valueOf(valores[f][7]));
+                usua[f] = new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
+                        String.valueOf(valores[0][5]), String.valueOf(valores[0][6]), String.valueOf(valores[0][7]));
             }
             return usua;
         }
@@ -104,12 +98,8 @@ public class UsuariosDao implements Dao<Usuarios> {
         if (valores.length > 0 && valores != null) {
             Usuarios[] usua = new Usuarios[valores.length];
             for (int f = 0; f <= valores.length - 1; f++) {
-                 String fe[] = valores[f][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-                usua[f] = new Usuarios((int) valores[f][0], String.valueOf(valores[f][1]),LocalDate.of(y, m, d), (int) valores[f][3], String.valueOf(valores[f][4]),
-                        String.valueOf(valores[f][5]), String.valueOf(valores[f][6]), String.valueOf(valores[f][7]));
+                usua[f] = new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
+                        String.valueOf(valores[0][5]), String.valueOf(valores[0][6]), String.valueOf(valores[0][7]));
             }
             return usua;
         }
@@ -129,11 +119,7 @@ public class UsuariosDao implements Dao<Usuarios> {
         Object[][] valores;
         valores = this.db.seleccionar(param);
         if (valores.length > 0 && valores != null) {
-            String fe[] = valores[0][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-            return new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), LocalDate.of(y, m, d), (int) valores[0][3], String.valueOf(valores[0][4]),
+            return new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
                     String.valueOf(valores[0][5]), String.valueOf(valores[0][6]), String.valueOf(valores[0][7]));
         }
         return null;
@@ -147,11 +133,7 @@ public class UsuariosDao implements Dao<Usuarios> {
         Object[][] valores;
         valores = this.db.seleccionar(param);
         if (valores.length > 0 && valores != null) {
-             String fe[] = valores[0][2].toString().split("-");
-                int y = Integer.parseInt(fe[0]);
-                int m = Integer.parseInt(fe[1]);
-                int d = Integer.parseInt(fe[2]);
-            return new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), LocalDate.of(y, m, d), (int) valores[0][3], String.valueOf(valores[0][4]),
+            return new Usuarios((int) valores[0][0], String.valueOf(valores[0][1]), (Date) valores[0][2], (int) valores[0][3], String.valueOf(valores[0][4]),
                     String.valueOf(valores[0][5]), String.valueOf(valores[0][6]), String.valueOf(valores[0][7]));
         }
         return null;

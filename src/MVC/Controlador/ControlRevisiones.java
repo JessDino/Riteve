@@ -18,22 +18,14 @@ import Vistas.Vista;
 public class ControlRevisiones implements Control<Revisiones>{
 private Revisiones revision;
     private Vista vista;
-    public MariaDB bd;
+    private MariaDB bd;
     private RevisionesDao dao;
 
-    public ControlRevisiones( Vista vista) {
+    public ControlRevisiones(Revisiones revision, Vista vista, MariaDB bd, RevisionesDao dao) {
           this.vista = vista;
         this.bd=new MariaDB("127.0.0.1", "padron", "root","");
         this.revision=new Revisiones();
         this.dao=new RevisionesDao(this.bd);
-    }
-
-    public void setRevision(Revisiones revision) {
-        this.revision = revision;
-    }
-
-    public void setVista(Vista vista) {
-        this.vista = vista;
     }
     
     
@@ -81,7 +73,10 @@ private Revisiones revision;
         vista.mostrar(valores);
     }
 
-   
+    @Override
+    public void buscar(Revisiones clase) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public void filtrar(String des) {
@@ -93,11 +88,6 @@ private Revisiones revision;
         this.vista.notificar(mensaje);
         
         }
-    }
-
-    @Override
-    public void listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

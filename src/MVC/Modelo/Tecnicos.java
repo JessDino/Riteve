@@ -5,7 +5,6 @@
  */
 package MVC.Modelo;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -16,7 +15,7 @@ public class Tecnicos {
 
     private int cedula;
     private String nombre;
-    private LocalDate FechaNacimiento;
+    private Date FechaNacimiento;
     private int telefono;
     private String correo;
     private int salario;
@@ -41,11 +40,11 @@ public class Tecnicos {
         }
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return FechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate FechaNacimiento) {
+    public void setFechaNacimiento(Date FechaNacimiento) {
         this.FechaNacimiento = FechaNacimiento;
     }
 
@@ -80,7 +79,7 @@ public class Tecnicos {
         }
     }
 
-    public Tecnicos(int cedula, String nombre, LocalDate FechaNacimiento, int telefono, String correo, int salario) {
+    public Tecnicos(int cedula, String nombre, Date FechaNacimiento, int telefono, String correo, int salario) {
         this.setCedula(cedula);
         this.setNombre(nombre);
         this.setFechaNacimiento(FechaNacimiento);

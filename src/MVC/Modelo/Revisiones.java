@@ -5,8 +5,6 @@
  */
 package MVC.Modelo;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Date;
 
 /**
@@ -14,13 +12,13 @@ import java.util.Date;
  * @author usuario
  */
 public class Revisiones {
-    private LocalDate fecha;
-    private LocalTime hora;
+    private Date fecha;
+    private String hora;
     private Tecnicos tecnico;
     private String tipoRevision;
     private String observacion;
     private String estado;
-    private Vehiculos vehiculo;
+private Vehiculos vehiculo;
 
     public Vehiculos getVehiculo() {
         return vehiculo;
@@ -30,19 +28,19 @@ public class Revisiones {
         this.vehiculo = vehiculo;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public LocalTime getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(LocalTime hora) {
+    public void setHora(String hora) {
         if (hora!=null) {
             this.hora = hora;
         }
@@ -90,7 +88,7 @@ public class Revisiones {
         
     }
 
-    public Revisiones(LocalDate fecha, LocalTime hora, Tecnicos tecnico, String tipoRevision, String observacion, String estado,Vehiculos vehiculo) {
+    public Revisiones(Date fecha, String hora, Tecnicos tecnico, String tipoRevision, String observacion, String estado,Vehiculos vehiculo) {
         this.setFecha(fecha);
         this.setHora(hora);
         this.setTecnico(tecnico);
