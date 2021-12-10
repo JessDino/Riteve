@@ -17,6 +17,8 @@ public class FrmOpciones extends javax.swing.JDialog {
     public FrmOpciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        
     }
 
     /**

@@ -6,6 +6,7 @@
 package BaseDatos;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -103,8 +104,10 @@ public class BaseDatos {
             if (parametro instanceof String) {
                 this.setencia.setString(i, (String) parametro);
             }
-            if (parametro instanceof Date) {
+            if (parametro instanceof Date ) {
                 this.setencia.setDate(i, (Date) parametro);
+            }if (parametro instanceof LocalDate) {
+                this.setencia.setDate(i,Date.valueOf(parametro.toString()) );
             }
             i++;
         }

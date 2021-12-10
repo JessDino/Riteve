@@ -20,9 +20,9 @@ private Vehiculos vehiculo;
     private MariaDB bd;
     private VehiculosDao dao;
 
-    public ControlVehiculo(Vehiculos vehiculo, Vista vista, MariaDB bd, VehiculosDao dao) {
+    public ControlVehiculo( Vista vista) {
          this.vista = vista;
-        this.bd=new MariaDB("127.0.0.1", "padron", "root","");
+        this.bd=new MariaDB("127.0.0.1", "rtv", "root","");
         this.vehiculo=new Vehiculos ();
         this.dao=new VehiculosDao(this.bd);
     }
@@ -33,6 +33,14 @@ private Vehiculos vehiculo;
 
     public void setVista(Vista vista) {
         this.vista = vista;
+    }
+
+    public Vehiculos getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculos vehiculo) {
+        this.vehiculo = vehiculo;
     }
 
     @Override
@@ -74,14 +82,24 @@ private Vehiculos vehiculo;
 
     @Override
     public void cancelar() {
-          Object []valores =new Object[1];
+        if (this.vehiculo!=null) {
+             Object []valores =new Object[1];
         valores[0]=this.vehiculo;
         vista.mostrar(valores);
+        }
+         
     }
 
     @Override
-    public void buscar(Vehiculos clase) {
+    public void buscar() {
+       Vehiculos vehi[]=this.dao.listar();
+        if (vehi !=null) {
+            this.vista.mostrar(vehi);
+        }else{
+        Object mensaje[]={"ERROR","NO HAY RESULTADO"};
+        this.vista.notificar(mensaje);
         
+        } 
     }
 
     @Override

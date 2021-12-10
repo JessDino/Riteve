@@ -14,6 +14,6 @@ public interface Control <Clase>{
     public void modificar(Clase clase);
     public void eliminar(Clase clase);
     public void cancelar();
-    public void buscar(Clase clase);
+    public void buscar();
     public void filtrar(String des);
 }

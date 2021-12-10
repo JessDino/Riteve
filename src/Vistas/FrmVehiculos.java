@@ -1,39 +1,30 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Vistas;
 
-import BaseDatos.MariaDB;
-import MVC.Controlador.Control;
 import MVC.Controlador.ControlVehiculo;
 import MVC.Modelo.Vehiculos;
-import java.awt.Frame;
-import java.time.LocalDate;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Jessica Aguirre
+ * @author usuario
  */
-public class FrmVehiculo extends javax.swing.JDialog implements Vista{
+public class FrmVehiculos extends javax.swing.JFrame implements Vista {
 
     /**
-     * Creates new form VistaVehiculo
+     * Creates new form FrmVehiculos
      */
-    private Control control;
-    public FrmVehiculo(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    ControlVehiculo control;
+
+    public FrmVehiculos() {
         initComponents();
-        control=new ControlVehiculo(this);
+        control = new ControlVehiculo((Vista) this);
+
     }
-    public FrmVehiculo(java.awt.Frame parent, boolean modal,MariaDB db) {
-        super(parent, modal);
-        initComponents();
-        control=new ControlVehiculo(this);
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,30 +58,30 @@ public class FrmVehiculo extends javax.swing.JDialog implements Vista{
         btnActualizar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Vehiculos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
 
-        jLabel1.setText("Número de placa:");
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Número de placa:");
 
-        jLabel2.setText("Marca:");
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Marca:");
 
-        jLabel3.setText("Modelo:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Modelo:");
 
-        jLabel4.setText("Año:");
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Año:");
 
-        jLabel6.setText("Fecha de inscripción:");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Fecha de inscripción:");
 
-        jLabel7.setText("Cedula propietario:");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Cedula propietario:");
 
-        jLabel8.setText("Nombre del propietario:");
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Nombre del propietario:");
 
         txtMarcaV.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -156,7 +147,7 @@ public class FrmVehiculo extends javax.swing.JDialog implements Vista{
                                 .addComponent(txtModeloV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                             .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dpFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(375, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,31 +187,36 @@ public class FrmVehiculo extends javax.swing.JDialog implements Vista{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.setEnabled(false);
-        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setText("Eliminar");
 
-        btnBuscar.setText("Buscar");
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
-        btnActualizar.setText("Actualizar");
         btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
 
-        btnNuevo.setText("Nuevo");
         btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -242,7 +238,7 @@ public class FrmVehiculo extends javax.swing.JDialog implements Vista{
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(391, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,24 +277,40 @@ public class FrmVehiculo extends javax.swing.JDialog implements Vista{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-this.cambiarEstados();
-        this.limpiar();
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-this.cambiarEstados();
-control.guardar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()),txtMarcaV.getText(),txtModeloV.getText(),Integer.parseInt(txtAnio.getText()),dpFecha.getDate(),Integer.parseInt(txtCedula.getText()),txtNombrePropiV.getText()));
-       
-    
-        //this.limpiar();
+        this.cambiarEstados();
+        if (verificar()) {
+            txtNumPlaca.setEnabled(true);
+            control.guardar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Vehiculo", JOptionPane.ERROR_MESSAGE);
+        // this.cambiarEstados();
+        }
+
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-FrmBuscarVehiculo fv=new FrmBuscarVehiculo(this,true,control);
-        txtNumPlaca.setEnabled(false);
-        control.modificar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()),txtMarcaV.getText(),txtModeloV.getText(),Integer.parseInt(txtAnio.getText()),dpFecha.getDate(),Integer.parseInt(txtCedula.getText()),txtNombrePropiV.getText()));
+        if (verificar()) {
+            control.modificar(new Vehiculos(Integer.parseInt(txtNumPlaca.getText()), txtMarcaV.getText(), txtModeloV.getText(), Integer.parseInt(txtAnio.getText()), dpFecha.getDate(), Integer.parseInt(txtCedula.getText()), txtNombrePropiV.getText()));
+        }
+
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        txtNumPlaca.setEnabled(true);
+        this.cambiarEstados();
+        this.limpiar();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        FrmBuscarVehiculo fv = new FrmBuscarVehiculo(this, true, control);
+        fv.setVisible(true);
+        txtNumPlaca.setEnabled(false);
+    }//GEN-LAST:event_btnBuscarActionPerformed
+    public boolean verificar() {
+        return txtNumPlaca.getText() != null && txtMarcaV.getText() != null && txtMarcaV.getText() != null && txtModeloV.getText() != null && txtAnio.getText() != null && dpFecha.getDate() != null && txtCedula.getText() != null && txtNombrePropiV.getText() != null;
+    }
 
     /**
      * @param args the command line arguments
@@ -317,30 +329,20 @@ FrmBuscarVehiculo fv=new FrmBuscarVehiculo(this,true,control);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmVehiculo dialog = new FrmVehiculo(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new FrmVehiculos().setVisible(true);
             }
         });
     }
@@ -372,7 +374,7 @@ FrmBuscarVehiculo fv=new FrmBuscarVehiculo(this,true,control);
 
     @Override
     public void cambiarEstados() {
-        
+
         this.btnNuevo.setEnabled(!this.btnNuevo.isEnabled());
         this.btnAgregar.setEnabled(!this.btnAgregar.isEnabled());
         this.btnActualizar.setEnabled(!this.btnActualizar.isEnabled());
@@ -383,28 +385,36 @@ FrmBuscarVehiculo fv=new FrmBuscarVehiculo(this,true,control);
     @Override
     public void limpiar() {
         txtAnio.setText("");
-   txtCedula.setText("");
-    txtMarcaV.setText("");
-    txtModeloV.setText("");
-    txtNombrePropiV.setText("");
-    txtNumPlaca.setText("");
-    dpFecha.setText("");
+        txtCedula.setText("");
+        txtMarcaV.setText("");
+        txtModeloV.setText("");
+        txtNombrePropiV.setText("");
+        txtNumPlaca.setText("");
+        dpFecha.setText("");
     }
 
     @Override
     public void notificar(Object[] msj) {
-          switch(String.valueOf(msj[0])){
-            case "OK"->{
-            JOptionPane.showMessageDialog(this, msj[1],"PROVINCIAS",JOptionPane.INFORMATION_MESSAGE);
+        switch (String.valueOf(msj[0])) {
+            case "OK" -> {
+                JOptionPane.showMessageDialog(this, msj[1], "Vehiculo", JOptionPane.INFORMATION_MESSAGE);
             }
-            case "ERROR"->{
-            JOptionPane.showMessageDialog(this, msj[1],"PROVINCIAS",JOptionPane.ERROR_MESSAGE);
+            case "ERROR" -> {
+                JOptionPane.showMessageDialog(this, msj[1], "Vehiculo", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
 
     @Override
     public void mostrar(Object[] msj) {
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Vehiculos ve = (Vehiculos) msj[0];
+
+        txtAnio.setText(String.valueOf(ve.getAnio()));
+        txtCedula.setText(String.valueOf(ve.getCedulaPropietario()));
+        txtMarcaV.setText(ve.getMarca());
+        txtModeloV.setText(ve.getModelo());
+        txtNombrePropiV.setText(ve.getNombrePropietario());
+        txtNumPlaca.setText(String.valueOf(ve.getNumeroDePlaca()));
+        dpFecha.setDate(ve.getFechaInscripcion());
     }
 }

@@ -15,8 +15,11 @@ public class FrmInicio extends javax.swing.JFrame {
      * Creates new form FrmInicio
      */
     
+    
     public FrmInicio() {
         initComponents();
+        
+        
     }
 
     /**

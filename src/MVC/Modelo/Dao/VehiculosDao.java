@@ -7,7 +7,8 @@ package MVC.Modelo.Dao;
 
 import BaseDatos.BaseDatos;
 import MVC.Modelo.Vehiculos;
-import java.util.Date;
+import java.time.LocalDate;
+import java.sql.Date;
 
 /**
  *
@@ -35,7 +36,7 @@ public class VehiculosDao implements Dao<Vehiculos>{
     @Override
     public boolean modificar(Vehiculos vehiculo) {
          if (vehiculo.requeridos() && this.validarUnicos(vehiculo)) {
-            this.db.prepararSetencia("Update into vehiculos set Marca=?,Modelo=?,Año=?,FechaDeInscripción=?,CedulaPropietario=?,NombrePropietario=? where NumeroDePlaca =?");
+            this.db.prepararSetencia("Update vehiculos set Marca=?,Modelo=?,Año=?,FechaDeInscripción=?,CedulaPropietario=?,NombrePropietario=? where NumeroDePlaca =?");
 
             Object[] param = {vehiculo.getMarca(),vehiculo.getModelo(),vehiculo.getAnio(),vehiculo.getFechaInscripcion(),
                 vehiculo.getCedulaPropietario(),vehiculo.getNombrePropietario(),vehiculo.getNumeroDePlaca()};
@@ -61,7 +62,7 @@ public class VehiculosDao implements Dao<Vehiculos>{
         Object[] param = {vehiculo.getNumeroDePlaca()};
         Object[][] valores= this.db.seleccionar(param);
         if (valores.length > 0&& valores!=null) {
-            return new Vehiculos((int) valores[0][0], String.valueOf(valores[0][1]),String.valueOf(valores[0][2]),(int)valores[0][3],(Date)valores[0][4]
+            return new Vehiculos((int) valores[0][0], String.valueOf(valores[0][1]),String.valueOf(valores[0][2]),(int)valores[0][3],(LocalDate)valores[0][4]
             ,(int)valores[0][5],String.valueOf(valores[0][6]));
         }
         return null;
@@ -71,15 +72,33 @@ public class VehiculosDao implements Dao<Vehiculos>{
     @Override
     public Vehiculos[] listar() {
          this.db.prepararSetencia("select * from vehiculos order by  NumeroDePlaca");
-       
+//        private int numeroDePlaca;
+//    private String marca;
+//    private String modelo;
+//    private int anio;
+//    private LocalDate fechaInscripcion;
+//    private int cedulaPropietario;
+//    private String nombrePropietario;
         Object[] param = {};
         Object[][] valores;
         valores = this.db.seleccionar(param);
         if (valores.length > 0&& valores!=null) {
             Vehiculos [] vehi=new Vehiculos [valores.length];
             for (int f = 0; f <= valores.length-1; f++) {
-                vehi [f]=new Vehiculos((int) valores[0][0], String.valueOf(valores[0][1]),String.valueOf(valores[0][2]),(int)valores[0][3],(Date)valores[0][4]
-            ,(int)valores[0][5],String.valueOf(valores[0][6]));
+                String fe[]= valores[0][4].toString().split("-");
+                int y=Integer.parseInt(fe[0]);
+                int m=Integer.parseInt(fe[1]);
+                int d=Integer.parseInt(fe[2]);
+                String anio[]= valores[0][3].toString().split("-");
+                int an=Integer.parseInt(anio[0]);
+             
+                vehi [f]=new Vehiculos(Integer.parseInt(valores[0][0].toString())
+                        , String.valueOf(valores[0][1])
+                        ,String.valueOf(valores[0][2])
+                        ,an
+                        ,LocalDate.of(y,m,d)
+                        ,Integer.parseInt(valores[0][5].toString())
+                        ,String.valueOf(valores[0][6]));
             }
             return  vehi;
         }
@@ -114,8 +133,20 @@ public class VehiculosDao implements Dao<Vehiculos>{
         if (valores.length > 0&& valores!=null) {
             Vehiculos []vehi=new Vehiculos [valores.length];
             for (int f = 0; f <= valores.length-1; f++) {
-                vehi [f]= new Vehiculos((int) valores[0][0], String.valueOf(valores[0][1]),String.valueOf(valores[0][2]),(int)valores[0][3],(Date)valores[0][4]
-            ,(int)valores[0][5],String.valueOf(valores[0][6]));
+              String fe[]= valores[0][4].toString().split("-");
+                int y=Integer.parseInt(fe[0]);
+                int m=Integer.parseInt(fe[1]);
+                int d=Integer.parseInt(fe[2]);
+                String anio[]= valores[0][3].toString().split("-");
+                int an=Integer.parseInt(anio[0]);
+             
+                vehi [f]=new Vehiculos(Integer.parseInt(valores[0][0].toString())
+                        , String.valueOf(valores[0][1])
+                        ,String.valueOf(valores[0][2])
+                        ,an
+                        ,LocalDate.of(y,m,d)
+                        ,Integer.parseInt(valores[0][5].toString())
+                        ,String.valueOf(valores[0][6]));
             }
             return vehi;
         }

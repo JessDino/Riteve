@@ -5,7 +5,9 @@
  */
 package MVC.Modelo;
 
+import java.time.LocalDate;
 import java.util.Date;
+
 
 /**
  *
@@ -17,7 +19,7 @@ public class Vehiculos {
     private String marca;
     private String modelo;
     private int anio;
-    private Date fechaInscripcion;
+    private LocalDate fechaInscripcion;
     private int cedulaPropietario;
     private String nombrePropietario;
 
@@ -65,11 +67,11 @@ public class Vehiculos {
         }
     }
 
-    public Date getFechaInscripcion() {
+    public LocalDate getFechaInscripcion() {
         return fechaInscripcion;
     }
 
-    public void setFechaInscripcion(Date fechaInscripcion) {
+    public void setFechaInscripcion(LocalDate fechaInscripcion) {
         this.fechaInscripcion = fechaInscripcion;
     }
 
@@ -95,7 +97,7 @@ public class Vehiculos {
         }
     }
 
-    public Vehiculos(int numeroDePlaca, String marca, String modelo, int anio, Date fechaInscripcion, int cedulaPropietario, String nombrePropietario) {
+    public Vehiculos(int numeroDePlaca, String marca, String modelo, int anio,LocalDate fechaInscripcion, int cedulaPropietario, String nombrePropietario) {
         this.setNumeroDePlaca(numeroDePlaca);
         this.setMarca(marca);
         this.setModelo(modelo);
